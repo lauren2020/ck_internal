@@ -4,7 +4,7 @@ class CreateStaffs < ActiveRecord::Migration[6.0]
       t.string :first_name
       t.string :last_name
       t.float :total_hours
-      t.array :sessions_worked
+      t.string :sessions_worked, array: true, default: []
 
       t.timestamps
     end
