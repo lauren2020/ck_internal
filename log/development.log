@@ -757,3 +757,23 @@ Processing by HelloWorldController#index as HTML
 Completed 200 OK in 2602ms (Views: 2593.0ms | ActiveRecord: 0.0ms | Allocations: 22527)
 
 
+Started GET "/hello_world" for ::1 at 2019-08-24 17:14:57 -0500
+  [1m[35m (200.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (Duration: 64.9ms | Allocations: 17172)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/laurenshultz/Dev/GiitHub/CourteousKids/ck_internal/public/packs
+Completed 200 OK in 4353ms (Views: 4345.2ms | ActiveRecord: 0.0ms | Allocations: 23602)
+
+
+Started GET "/staff" for ::1 at 2019-08-24 17:15:07 -0500
+Processing by StaffController#index as HTML
+  Rendering staff/index.html.erb within layouts/application
+  [1m[36mStaff Load (215.8ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staff/index.html.erb:17
+  Rendered staff/index.html.erb within layouts/application (Duration: 337.7ms | Allocations: 1706)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1825ms (Views: 1489.2ms | ActiveRecord: 330.5ms | Allocations: 2073044)
+
+
