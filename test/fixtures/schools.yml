@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  days: MyString
+  avg_attendance: 1.5
+  class_periods: 
+
+two:
+  name: MyString
+  days: MyString
+  avg_attendance: 1.5
+  class_periods: 

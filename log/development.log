@@ -125,3 +125,611 @@ Processing by StaffsController#index as HTML
 Completed 200 OK in 6099ms (Views: 6087.8ms | ActiveRecord: 6.2ms | Allocations: 1545390)
 
 
+  [1m[35m (72.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (62.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (71.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (460.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStaffs (20190824163259)
+  [1m[35m (90.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (114.4ms)[0m  [1m[35mCREATE TABLE "staffs" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "total_hours" float, "sessions_worked" character varying[] DEFAULT '{}', "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (59.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190824163259"]]
+  [1m[35m (53.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateClassPeriods (20190824185612)
+  [1m[35m (50.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (62.2ms)[0m  [1m[35mCREATE TABLE "class_periods" ("id" bigserial primary key, "date" date DEFAULT '2019-08-24', "week_day" character varying DEFAULT 'Not Set', "attendance_count" integer DEFAULT 0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (242.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190824185612"]]
+  [1m[35m (50.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (75.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (52.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (53.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-24 19:03:43.443834"], ["updated_at", "2019-08-24 19:03:43.443834"]]
+  [1m[35m (62.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (54.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (69.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (62.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (53.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSchools (20190824190843)
+  [1m[35m (74.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (58.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (64.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSchools (20190824190843)
+  [1m[35m (49.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (68.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (85.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSchools (20190824190843)
+  [1m[35m (54.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (85.6ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying DEFAULT '', "days" character varying[] DEFAULT '{}', "avg_attendance" float DEFAULT 0.0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (66.2ms)[0m  [1m[35mALTER TABLE "school" ADD "class_period_id" bigint[0m
+  [1m[35m (60.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (180.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (103.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (61.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSchools (20190824190843)
+  [1m[35m (61.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (90.5ms)[0m  [1m[35mCREATE TABLE "schools" ("id" bigserial primary key, "name" character varying DEFAULT '', "days" character varying[] DEFAULT '{}', "avg_attendance" float DEFAULT 0.0, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (111.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190824190843"]]
+  [1m[35m (71.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddClassPeriodsToSchool (20190824191903)
+  [1m[35m (83.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (61.3ms)[0m  [1m[35mALTER TABLE "school" ADD "class_period_id" bigint[0m
+  [1m[35m (61.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (71.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (54.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (57.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddClassPeriodsToSchool (20190824191903)
+  [1m[35m (59.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (59.1ms)[0m  [1m[35mALTER TABLE "schools" ADD "class_period_id" bigint[0m
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE  INDEX  "index_schools_on_class_period_id" ON "schools"  ("class_period_id")[0m
+  [1m[36mprimary::SchemaMigration Create (102.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190824191903"]]
+  [1m[35m (57.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (65.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (62.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (63.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/staffs" for ::1 at 2019-08-24 14:25:37 -0500
+  [1m[35m (52.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/staffs"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/staffs" for ::1 at 2019-08-24 14:25:42 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/staffs"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/staff" for ::1 at 2019-08-24 14:25:45 -0500
+Processing by StaffController#index as HTML
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.0ms | Allocations: 2592)
+
+
+  
+ActionController::MissingExactTemplate (StaffController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.0) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.0) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.0) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/class_periods" for ::1 at 2019-08-24 14:26:05 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (59.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 180.1ms | Allocations: 1566)
+Completed 200 OK in 1202ms (Views: 1025.2ms | ActiveRecord: 174.8ms | Allocations: 1534252)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 14:26:14 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (49.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 150.5ms | Allocations: 1739)
+Completed 200 OK in 166ms (Views: 18.7ms | ActiveRecord: 144.9ms | Allocations: 10536)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-24 14:27:35 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (139.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 141.5ms | Allocations: 719)
+Completed 200 OK in 163ms (Views: 22.7ms | ActiveRecord: 139.6ms | Allocations: 8633)
+
+
+Started GET "/class_periods/new" for ::1 at 2019-08-24 14:27:37 -0500
+Processing by ClassPeriodsController#new as HTML
+  Rendering class_periods/new.html.erb within layouts/application
+  Rendered class_periods/_form.html.erb (Duration: 34.8ms | Allocations: 11393)
+  Rendered class_periods/new.html.erb within layouts/application (Duration: 37.8ms | Allocations: 11759)
+Completed 200 OK in 178ms (Views: 46.5ms | ActiveRecord: 123.3ms | Allocations: 23683)
+
+
+Started POST "/class_periods" for ::1 at 2019-08-24 14:28:00 -0500
+Processing by ClassPeriodsController#create as HTML
+  Parameters: {"authenticity_token"=>"TCKj8+YY3fsg0hmM2+gbR3ZW9ETwLLsWw24N7pL2yaBUh83PatPofOe7aEJrHRKbgjGWJUkbAXiOLnxjFi9p6Q==", "class_period"=>{"date(1i)"=>"2019", "date(2i)"=>"8", "date(3i)"=>"24", "week_day"=>"Saturday", "attendance_count"=>"6"}, "commit"=>"Create Class period"}
+  [1m[35m (70.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:30:in `block in create'
+  [1m[36mClassPeriod Create (63.4ms)[0m  [1m[32mINSERT INTO "class_periods" ("week_day", "attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["week_day", "Saturday"], ["attendance_count", 6], ["created_at", "2019-08-24 19:28:00.681397"], ["updated_at", "2019-08-24 19:28:00.681397"]]
+  ↳ app/controllers/class_periods_controller.rb:30:in `block in create'
+  [1m[35m (225.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/class_periods/1
+Completed 302 Found in 369ms (ActiveRecord: 359.5ms | Allocations: 3094)
+
+
+Started GET "/class_periods/1" for ::1 at 2019-08-24 14:28:01 -0500
+Processing by ClassPeriodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassPeriod Load (68.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  Rendering class_periods/show.html.erb within layouts/application
+  Rendered class_periods/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 317)
+Completed 200 OK in 238ms (Views: 13.4ms | ActiveRecord: 124.8ms | Allocations: 9666)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-24 14:28:04 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (99.3ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 101.5ms | Allocations: 804)
+Completed 200 OK in 113ms (Views: 12.4ms | ActiveRecord: 99.3ms | Allocations: 8705)
+
+
+Started GET "/class_periods/1" for ::1 at 2019-08-24 14:28:32 -0500
+Processing by ClassPeriodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassPeriod Load (66.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  Rendering class_periods/show.html.erb within layouts/application
+  Rendered class_periods/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 105)
+Completed 200 OK in 79ms (Views: 10.5ms | ActiveRecord: 66.1ms | Allocations: 8541)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-24 14:28:35 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (66.3ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 68.7ms | Allocations: 799)
+Completed 200 OK in 80ms (Views: 12.6ms | ActiveRecord: 66.3ms | Allocations: 8693)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 14:28:48 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (67.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 70.1ms | Allocations: 673)
+Completed 200 OK in 83ms (Views: 13.5ms | ActiveRecord: 67.8ms | Allocations: 8571)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-24 14:28:50 -0500
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 4.2ms | Allocations: 1916)
+  Rendered schools/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2271)
+Completed 200 OK in 74ms (Views: 16.5ms | ActiveRecord: 49.5ms | Allocations: 14705)
+
+
+Started POST "/schools" for ::1 at 2019-08-24 14:29:34 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"O56u6MX0pObeiXEAkb+2g6SkWch3OxYFAQ5B8MHJkK8oUv7HjcWWsIptgJiv8QomamH8EXQMuDSWBNc+wkhHlA==", "school"=>{"name"=>"Nathan Hale", "days"=>"Monday,Wednesday", "avg_attendance"=>"12", "class_periods"=>"1"}, "commit"=>"Create School"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 916)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'class_periods' for School.):
+  
+app/controllers/schools_controller.rb:27:in `create'
+Started GET "/class_periods" for ::1 at 2019-08-24 14:30:50 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (88.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 90.1ms | Allocations: 807)
+Completed 200 OK in 112ms (Views: 23.0ms | ActiveRecord: 88.0ms | Allocations: 8701)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 14:30:55 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (71.3ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 73.1ms | Allocations: 669)
+Completed 200 OK in 85ms (Views: 12.8ms | ActiveRecord: 71.3ms | Allocations: 8560)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 14:46:23 -0500
+  [1m[35m (50.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+Completed 500 Internal Server Error in 237ms (ActiveRecord: 0.0ms | Allocations: 4466)
+
+
+  
+NoMethodError (undefined method `has_may' for #<Class:0x00007fc492a46038>
+Did you mean?  has_many):
+  
+app/models/school.rb:2:in `<class:School>'
+app/models/school.rb:1:in `<top (required)>'
+app/controllers/schools_controller.rb:7:in `index'
+Started GET "/schools" for ::1 at 2019-08-24 14:47:20 -0500
+  [1m[35m (57.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (56.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 167.4ms | Allocations: 1994)
+Completed 200 OK in 1185ms (Views: 1010.2ms | ActiveRecord: 161.1ms | Allocations: 1530121)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-24 14:47:25 -0500
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 84.3ms | Allocations: 8801)
+  Rendered schools/new.html.erb within layouts/application (Duration: 87.8ms | Allocations: 9176)
+Completed 200 OK in 205ms (Views: 41.2ms | ActiveRecord: 155.2ms | Allocations: 21792)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 15:12:59 -0500
+  [1m[35m (49.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 812)
+
+
+  
+SyntaxError (/Users/laurenshultz/Dev/GiitHub/CourteousKids/ck_internal/app/models/school.rb:12: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+...if (total != 0 && count != 0) {
+...                              ^
+/Users/laurenshultz/Dev/GiitHub/CourteousKids/ck_internal/app/models/school.rb:14: syntax error, unexpected '}', expecting keyword_end
+        }
+        ^):
+  
+app/models/school.rb:12: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+app/models/school.rb:14: syntax error, unexpected '}', expecting keyword_end
+app/models/school.rb:12: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+app/models/school.rb:14: syntax error, unexpected '}', expecting keyword_end
+app/models/school.rb:12: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+app/models/school.rb:14: syntax error, unexpected '}', expecting keyword_end
+app/controllers/schools_controller.rb:7:in `index'
+Started GET "/schools" for ::1 at 2019-08-24 15:14:12 -0500
+  [1m[35m (61.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (55.3ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 186.7ms | Allocations: 1996)
+Completed 200 OK in 1280ms (Views: 1088.0ms | ActiveRecord: 178.4ms | Allocations: 1530202)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-24 15:14:16 -0500
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 12.0ms | Allocations: 3439)
+  Rendered schools/new.html.erb within layouts/application (Duration: 28.9ms | Allocations: 3815)
+Completed 200 OK in 169ms (Views: 37.8ms | ActiveRecord: 123.5ms | Allocations: 16513)
+
+
+Started POST "/schools" for ::1 at 2019-08-24 15:14:22 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"oD1zUOVLNWF/cd74eS+ctgTFyM4muVut9qUl70vtq5Sz8SN/rXoHNyuVL2BHYSATygBtFyWO9Zxhr7MhSGx8rw==", "school"=>{"name"=>"Nathan Hale", "days"=>"Monday"}, "commit"=>"Create School"}
+  [1m[35m (52.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:7:in `calculate_avg_attendance'
+  [1m[36mSchool Create (56.0ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nathan Hale"], ["created_at", "2019-08-24 20:14:23.234564"], ["updated_at", "2019-08-24 20:14:23.234564"]]
+  ↳ app/controllers/schools_controller.rb:30:in `block in create'
+  [1m[35m (74.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/schools/1
+Completed 302 Found in 336ms (ActiveRecord: 310.1ms | Allocations: 9085)
+
+
+Started GET "/schools/1" for ::1 at 2019-08-24 15:14:23 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchool Load (472.4ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:67:in `set_school'
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 358)
+Completed 200 OK in 1064ms (Views: 14.7ms | ActiveRecord: 667.1ms | Allocations: 9704)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 15:14:36 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (51.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 52.7ms | Allocations: 830)
+Completed 200 OK in 63ms (Views: 11.3ms | ActiveRecord: 51.0ms | Allocations: 8735)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 15:15:59 -0500
+  [1m[35m (61.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (85.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 379.1ms | Allocations: 11355)
+Completed 200 OK in 1447ms (Views: 1084.0ms | ActiveRecord: 348.7ms | Allocations: 1539478)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-24 15:16:04 -0500
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 15.3ms | Allocations: 3385)
+  Rendered schools/new.html.erb within layouts/application (Duration: 17.8ms | Allocations: 3760)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.0ms | Allocations: 11826)
+
+
+Started POST "/schools" for ::1 at 2019-08-24 15:16:19 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"IRZemJJ3azjmGaeomVu6le/Z54/F1gQO4VB/Qn8rPawy2g632kZZbrL9VjCnFQYwIRxCVsbhqj92WumMfKrqlw==", "school"=>{"name"=>"Bennington", "days"=>"Wednesday"}, "commit"=>"Create School"}
+  [1m[35m (79.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:7:in `calculate_avg_attendance'
+  [1m[36mSchool Create (65.2ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Bennington"], ["created_at", "2019-08-24 20:16:19.812943"], ["updated_at", "2019-08-24 20:16:19.812943"]]
+  ↳ app/controllers/schools_controller.rb:30:in `block in create'
+  [1m[35m (62.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/schools/2
+Completed 302 Found in 336ms (ActiveRecord: 319.5ms | Allocations: 4646)
+
+
+Started GET "/schools/2" for ::1 at 2019-08-24 15:16:19 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchool Load (62.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:67:in `set_school'
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 355)
+Completed 200 OK in 228ms (Views: 13.9ms | ActiveRecord: 141.7ms | Allocations: 9681)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 15:20:31 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (61.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 421.4ms | Allocations: 6870)
+Completed 200 OK in 434ms (Views: 23.7ms | ActiveRecord: 406.5ms | Allocations: 15933)
+
+
+Started GET "/schools/2/edit" for ::1 at 2019-08-24 15:20:42 -0500
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchool Load (92.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:67:in `set_school'
+  Rendering schools/edit.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 2.0ms | Allocations: 919)
+  Rendered schools/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1192)
+Completed 200 OK in 109ms (Views: 13.1ms | ActiveRecord: 92.1ms | Allocations: 9889)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 15:20:47 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (81.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:17
+  Rendered schools/index.html.erb within layouts/application (Duration: 84.4ms | Allocations: 978)
+Completed 200 OK in 95ms (Views: 12.3ms | ActiveRecord: 81.9ms | Allocations: 8881)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-24 15:22:47 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (85.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 261.1ms | Allocations: 5312)
+Completed 200 OK in 285ms (Views: 33.8ms | ActiveRecord: 250.0ms | Allocations: 13806)
+
+
+Started GET "/staff" for ::1 at 2019-08-24 15:25:00 -0500
+Processing by StaffController#index as HTML
+Completed 406 Not Acceptable in 7ms (ActiveRecord: 0.0ms | Allocations: 2274)
+
+
+  
+ActionController::MissingExactTemplate (StaffController#index is missing a template for request formats: text/html):
+  
+actionpack (6.0.0) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.0) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.0) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/staff" for ::1 at 2019-08-24 15:25:49 -0500
+  [1m[35m (54.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaffController#index as HTML
+  Rendering staff/index.html.erb within layouts/application
+  [1m[36mStaff Load (63.5ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staff/index.html.erb:17
+  Rendered staff/index.html.erb within layouts/application (Duration: 231.0ms | Allocations: 1979)
+Completed 200 OK in 1241ms (Views: 1005.5ms | ActiveRecord: 225.0ms | Allocations: 1529002)
+
+

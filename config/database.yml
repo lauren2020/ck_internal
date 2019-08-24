@@ -23,25 +23,25 @@ default: &default
 
 development:
   <<: *default
-  database: ck_interanl_dev
+  database: d678cb2eq547bg
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  username: laurenshultz
+  username: uugtdgcrrkojlx
 
   # The password associated with the postgres role (username).
-  password: password
+  password: c2c984f069e4fcbd9bed6e89416797139f21c67cc2ce0086eb580e801411f618
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: localhost
+  host: ec2-23-23-182-18.compute-1.amazonaws.com
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: ck_internal_production
-  username: ck_internal
+  database: deud7pagrv1ioo
+  username: trjnerjsictbhc
   password: <%= ENV['CK_INTERNAL_DATABASE_PASSWORD'] %>
+  host: ec2-54-197-239-115.compute-1.amazonaws.com
+  port: 5432

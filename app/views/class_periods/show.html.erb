@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @class_period.date %>
+</p>
+
+<p>
+  <strong>Week day:</strong>
+  <%= @class_period.week_day %>
+</p>
+
+<p>
+  <strong>Attendance count:</strong>
+  <%= @class_period.attendance_count %>
+</p>
+
+<%= link_to 'Edit', edit_class_period_path(@class_period) %> |
+<%= link_to 'Back', class_periods_path %>

@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_24_163259) do
+ActiveRecord::Schema.define(version: 2019_08_24_191903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "class_periods", force: :cascade do |t|
+    t.date "date", default: "2019-08-24"
+    t.string "week_day", default: "Not Set"
+    t.integer "attendance_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name", default: ""
+    t.string "days", default: [], array: true
+    t.float "avg_attendance", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "class_period_id"
+    t.index ["class_period_id"], name: "index_schools_on_class_period_id"
+  end
 
   create_table "staffs", force: :cascade do |t|
     t.string "first_name"
