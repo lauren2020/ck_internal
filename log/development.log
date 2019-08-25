@@ -1252,3 +1252,11 @@ Processing by SchoolsController#index as HTML
 Completed 200 OK in 69ms (Views: 19.7ms | ActiveRecord: 48.5ms | Allocations: 9774)
 
 
+Started GET "/api/v1/class_periods" for ::1 at 2019-08-24 21:42:31 -0500
+  [1m[35m (65.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClassPeriodsController#index as HTML
+  [1m[36mClassPeriod Load (59.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/controllers/api/v1/class_periods_controller.rb:9:in `index'
+Completed 200 OK in 312ms (Views: 10.8ms | ActiveRecord: 291.0ms | Allocations: 7241)
+
+
