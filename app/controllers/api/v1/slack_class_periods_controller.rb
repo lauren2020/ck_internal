@@ -18,7 +18,10 @@ class Api::V1::SlackClassPeriodsController < ApplicationController
   def create
     @class_period = ClassPeriod.new#(class_period_params)
     @class_period.attendance_count = params[:text]
-    @class_period.week_day = params[:channel_name]
+    #@class_period.week_day = params[:channel_name]
+
+    @school = School.where(:name => params[:channel_name])
+    @class_period.week_day = @school.inspect
 
     if @class_period.save
       render json: @class_period, status: :created, location: api_v1_class_period_url(@class_period)
