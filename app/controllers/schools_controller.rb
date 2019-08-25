@@ -10,7 +10,8 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
-    @class_periods = ClassPeriod.where(:week_day => "test_costum_apps")
+    set_avg_attendance
+    #@class_periods = ClassPeriod.where(:channel_name => @school.channel_name)
   end
 
   # GET /schools/new
@@ -62,9 +63,19 @@ class SchoolsController < ApplicationController
     end
   end
 
-  def get_class_periods
-    ClassPeriod.where(:week_day => "test_costum_apps")
-  end
+  def set_avg_attendance
+    total = 0
+    class_periods = ClassPeriod.where(:channel_name => @school.channel_name)
+    class_periods.each { |class_period|
+        total += class_period.attendance_count
+    }
+    count = class_periods.count
+    average = 0
+    if total != 0 && count != 0
+        average = total / count
+    end
+    @school.avg_attendance = average
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

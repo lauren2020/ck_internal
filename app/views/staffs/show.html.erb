@@ -10,15 +10,29 @@
   <%= @staff.last_name %>
 </p>
 
+<div>
 <p>
-  <strong>Total hours:</strong>
+  <strong>  Program Hours:</strong>
+  <%=   @staff.program_hours %>
+</p>
+
+<p>
+  <strong>  Planning Hours:</strong>
+  <%=   @staff.planning_hours %>
+</p>
+------------------------------------
+<p>
+  <strong>Total Hours:</strong>
   <%= @staff.total_hours %>
 </p>
+
+</div>
 
 <p>
   <strong>Sessions worked:</strong>
   <%= @staff.sessions_worked %>
 </p>
 
+<%= link_to '+ Add A Session Worked', edit_staff_path(@staff) %> |
 <%= link_to 'Edit', edit_staff_path(@staff) %> |
 <%= link_to 'Back', staffs_path %>

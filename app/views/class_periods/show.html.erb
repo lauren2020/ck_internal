@@ -15,5 +15,15 @@
   <%= @class_period.attendance_count %>
 </p>
 
+<p>
+  <strong>Channel Name:</strong>
+  <%= @class_period.channel_name %>
+</p>
+
+<p>
+  <strong>Recorded By:</strong>
+  <%= @class_period.recorded_by %>
+</p>
+
 <%= link_to 'Edit', edit_class_period_path(@class_period) %> |
 <%= link_to 'Back', class_periods_path %>

@@ -7,7 +7,9 @@
 
 <p>
   <strong>Days:</strong>
-  <%= @school.days %>
+  <%= @school.days.each do |day| %>
+    <li><%= day %></li>
+  <% end %>
 </p>
 
 <p>
@@ -16,8 +18,18 @@
 </p>
 
 <p>
-  <strong>Class periods:</strong>
-  <%= @school.class_periods %>
+  <strong>Channel Name:</strong>
+  <%= @school.channel_name %>
+</p>
+
+<p>
+  <strong>ClassPeriods:</strong>
+
+  <% ClassPeriod.where(:channel_name => @school.channel_name).each do |class_period| %>
+    <li><%= "Date: " + class_period.date.to_s + " Attendance: " + class_period.attendance_count.to_s %></li>
+  <% end %>
+
+  
 </p>
 
 <%= link_to '+ Add Class Period', new_class_period_path(@school) %> |

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'hello_world', to: 'hello_world#index'
   resources :schools
   resources :class_periods
-  resources :staff
+  resources :staffs
   namespace :api do
     namespace :v1 do
       resources :class_periods

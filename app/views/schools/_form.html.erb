@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :channel_name %>
+    <%= form.text_field :channel_name %>
+  </div>
+
+  <div class="field">
     <%= form.label :days %>
     <%= form.select :days, [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"]] %>
   </div>

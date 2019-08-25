@@ -4,10 +4,11 @@ class School < ApplicationRecord
     
     def calculate_avg_attendance
         total = 0
-        self.class_periods.each { |class_period|
-            total += class_period.attendance
+        class_periods = ClassPeriod.where(:channel_name => self.channel_name)
+        class_periods.each { |class_period|
+            total += class_period.attendance_count
         }
-        count = self.class_periods.count
+        count = class_periods.count
         average = 0
         if total != 0 && count != 0
             average = total / count

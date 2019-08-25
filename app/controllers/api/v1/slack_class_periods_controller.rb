@@ -20,6 +20,7 @@ class Api::V1::SlackClassPeriodsController < ApplicationController
     @class_period.attendance_count = params[:text]
     @class_period.date = Date.today
     @class_period.channel_name = params[:channel_name]
+    @class_period.recorded_by = params[:user_name]
 
     @school = School.where(:channel_name => params[:channel_name])
     #@school.class_periods << @class_period
