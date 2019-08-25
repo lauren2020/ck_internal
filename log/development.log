@@ -1260,3 +1260,223 @@ Processing by Api::V1::ClassPeriodsController#index as HTML
 Completed 200 OK in 312ms (Views: 10.8ms | ActiveRecord: 291.0ms | Allocations: 7241)
 
 
+Started POST "/api/v1/class_periods?attendance_count=5" for ::1 at 2019-08-24 22:13:10 -0500
+  [1m[35m (50.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClassPeriodsController#create as */*
+  Parameters: {"attendance_count"=>"5"}
+Completed 422 Unprocessable Entity in 492ms (Views: 0.3ms | ActiveRecord: 454.3ms | Allocations: 11702)
+
+
+Started GET "/api/v1/class_periods" for ::1 at 2019-08-24 22:20:32 -0500
+  [1m[35m (54.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ClassPeriodsController#index as */*
+  [1m[36mClassPeriod Load (80.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/controllers/api/v1/class_periods_controller.rb:9:in `index'
+Completed 200 OK in 371ms (Views: 9.5ms | ActiveRecord: 351.9ms | Allocations: 7154)
+
+
+Started GET "/api/v1/schools" for ::1 at 2019-08-24 22:21:57 -0500
+Processing by Api::V1::SchoolsController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2374)
+
+
+  
+NameError (uninitialized constant Api::V1::SchoolsController::Schools
+Did you mean?  School):
+  
+app/controllers/api/v1/schools_controller.rb:7:in `index'
+Started GET "/api/v1/schools" for ::1 at 2019-08-24 22:22:21 -0500
+Processing by Api::V1::SchoolsController#index as HTML
+  [1m[36mSchool Load (56.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:9:in `index'
+Completed 200 OK in 442ms (Views: 10.6ms | ActiveRecord: 426.1ms | Allocations: 8185)
+
+
+Started POST "/api/v1/schools?name=test&days=[%22Monday%22,%20%22Wednesday%22]&class_periods=[%7B%0A%20%20%20%20%20%20%20%20%22id%22:%201,%0A%20%20%20%20%20%20%20%20%22date%22:%20%222019-08-24%22,%0A%20%20%20%20%20%20%20%20%22week_day%22:%20%22Saturday%22,%0A%20%20%20%20%20%20%20%20%22attendance_count%22:%206,%0A%20%20%20%20%20%20%20%20%22created_at%22:%20%222019-08-24T19:28:00.681Z%22,%0A%20%20%20%20%20%20%20%20%22updated_at%22:%20%222019-08-24T19:28:00.681Z%22%0A%20%20%20%20%7D]" for ::1 at 2019-08-24 22:23:31 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"name"=>"test", "days"=>"[\"Monday\", \"Wednesday\"]", "class_periods"=>"[{\n        \"id\": 1,\n        \"date\": \"2019-08-24\",\n        \"week_day\": \"Saturday\",\n        \"attendance_count\": 6,\n        \"created_at\": \"2019-08-24T19:28:00.681Z\",\n        \"updated_at\": \"2019-08-24T19:28:00.681Z\"\n    }]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2279)
+
+
+  
+NameError (uninitialized constant Api::V1::SchoolsController::Schools
+Did you mean?  School):
+  
+app/controllers/api/v1/schools_controller.rb:19:in `create'
+Started GET "/api/v1/schools" for ::1 at 2019-08-24 22:23:50 -0500
+Processing by Api::V1::SchoolsController#index as */*
+  [1m[36mSchool Load (52.3ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:9:in `index'
+Completed 200 OK in 55ms (Views: 2.2ms | ActiveRecord: 52.3ms | Allocations: 1270)
+
+
+Started POST "/api/v1/schools?name=test&days=[%22Monday%22,%20%22Wednesday%22]&class_periods=[%7B%0A%20%20%20%20%20%20%20%20%22id%22:%201,%0A%20%20%20%20%20%20%20%20%22date%22:%20%222019-08-24%22,%0A%20%20%20%20%20%20%20%20%22week_day%22:%20%22Saturday%22,%0A%20%20%20%20%20%20%20%20%22attendance_count%22:%206,%0A%20%20%20%20%20%20%20%20%22created_at%22:%20%222019-08-24T19:28:00.681Z%22,%0A%20%20%20%20%20%20%20%20%22updated_at%22:%20%222019-08-24T19:28:00.681Z%22%0A%20%20%20%20%7D]" for ::1 at 2019-08-24 22:23:59 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"name"=>"test", "days"=>"[\"Monday\", \"Wednesday\"]", "class_periods"=>"[{\n        \"id\": 1,\n        \"date\": \"2019-08-24\",\n        \"week_day\": \"Saturday\",\n        \"attendance_count\": 6,\n        \"created_at\": \"2019-08-24T19:28:00.681Z\",\n        \"updated_at\": \"2019-08-24T19:28:00.681Z\"\n    }]"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2282)
+
+
+  
+NameError (uninitialized constant Api::V1::SchoolsController::Schools
+Did you mean?  School):
+  
+app/controllers/api/v1/schools_controller.rb:19:in `create'
+Started POST "/api/v1/schools?name=test&days=[%22Monday%22,%20%22Wednesday%22]&class_periods=[%7B%0A%20%20%20%20%20%20%20%20%22id%22:%201,%0A%20%20%20%20%20%20%20%20%22date%22:%20%222019-08-24%22,%0A%20%20%20%20%20%20%20%20%22week_day%22:%20%22Saturday%22,%0A%20%20%20%20%20%20%20%20%22attendance_count%22:%206,%0A%20%20%20%20%20%20%20%20%22created_at%22:%20%222019-08-24T19:28:00.681Z%22,%0A%20%20%20%20%20%20%20%20%22updated_at%22:%20%222019-08-24T19:28:00.681Z%22%0A%20%20%20%20%7D]" for ::1 at 2019-08-24 22:24:19 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"name"=>"test", "days"=>"[\"Monday\", \"Wednesday\"]", "class_periods"=>"[{\n        \"id\": 1,\n        \"date\": \"2019-08-24\",\n        \"week_day\": \"Saturday\",\n        \"attendance_count\": 6,\n        \"created_at\": \"2019-08-24T19:28:00.681Z\",\n        \"updated_at\": \"2019-08-24T19:28:00.681Z\"\n    }]"}
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 234.1ms | Allocations: 11077)
+
+
+  
+NoMethodError (undefined method `each' for #<String:0x00007fc0765b1830>):
+  
+app/controllers/api/v1/schools_controller.rb:19:in `create'
+Started POST "/api/v1/schools?name=test&days=[%22Monday%22,%20%22Wednesday%22]" for ::1 at 2019-08-24 22:24:46 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"name"=>"test", "days"=>"[\"Monday\", \"Wednesday\"]"}
+  [1m[35m (83.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:7:in `calculate_avg_attendance'
+  [1m[36mSchool Create (61.2ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test"], ["created_at", "2019-08-25 03:24:46.984096"], ["updated_at", "2019-08-25 03:24:46.984096"]]
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+  [1m[35m (70.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+Completed 201 Created in 344ms (Views: 1.1ms | ActiveRecord: 329.1ms | Allocations: 4486)
+
+
+Started PATCH "/api/v1/schools?class_period_id=1" for ::1 at 2019-08-24 22:25:18 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/api/v1/schools"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (3547917a3e56) lib/webpacker/dev_server_proxy.rb:22:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/api/v1/schools/3?class_period_id=1" for ::1 at 2019-08-24 22:25:42 -0500
+Processing by Api::V1::SchoolsController#update as */*
+  Parameters: {"class_period_id"=>"1", "id"=>"3"}
+  [1m[36mSchool Load (63.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/schools_controller.rb:45:in `set_school'
+[31mUnpermitted parameters: :class_period_id, :id[0m
+  [1m[35m (60.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:7:in `calculate_avg_attendance'
+  [1m[35m (58.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:30:in `update'
+Completed 500 Internal Server Error in 365ms (ActiveRecord: 239.6ms | Allocations: 4020)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column class_periods.school_id does not exist
+LINE 1: ...LECT "class_periods".* FROM "class_periods" WHERE "class_per...
+                                                             ^
+):
+  
+app/models/school.rb:7:in `calculate_avg_attendance'
+app/controllers/api/v1/schools_controller.rb:30:in `update'
+Started POST "/api/v1/class_periods?attendance_count=5" for ::1 at 2019-08-24 22:29:31 -0500
+Processing by Api::V1::ClassPeriodsController#create as */*
+  Parameters: {"attendance_count"=>"5"}
+  [1m[35m (63.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/class_periods_controller.rb:21:in `create'
+  [1m[36mClassPeriod Create (344.2ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 5], ["created_at", "2019-08-25 03:29:32.661144"], ["updated_at", "2019-08-25 03:29:32.661144"]]
+  ↳ app/controllers/api/v1/class_periods_controller.rb:21:in `create'
+  [1m[35m (61.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/class_periods_controller.rb:21:in `create'
+Completed 201 Created in 1118ms (Views: 0.4ms | ActiveRecord: 1101.5ms | Allocations: 7141)
+
+
+Started GET "/api/v1/class_periods" for ::1 at 2019-08-24 22:32:47 -0500
+Processing by Api::V1::ClassPeriodsController#index as */*
+  [1m[36mClassPeriod Load (57.9ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/controllers/api/v1/class_periods_controller.rb:9:in `index'
+Completed 200 OK in 61ms (Views: 2.7ms | ActiveRecord: 57.9ms | Allocations: 1275)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-24 22:51:38 -0500
+  [1m[35m (59.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/slack_class_periods"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (3547917a3e56) lib/webpacker/dev_server_proxy.rb:22:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-24 22:52:16 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2245)
+
+
+  
+NameError (uninitialized constant Api::V1::SlackClassPeriodsController::Curl):
+  
+app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-24 23:00:41 -0500
+  [1m[35m (51.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  [1m[35m (56.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:21:in `create'
+  [1m[36mClassPeriod Create (52.8ms)[0m  [1m[32mINSERT INTO "class_periods" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-08-25 04:00:43.133643"], ["updated_at", "2019-08-25 04:00:43.133643"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:21:in `create'
+  [1m[35m (382.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:21:in `create'
+Completed 201 Created in 740ms (Views: 1.0ms | ActiveRecord: 714.6ms | Allocations: 7748)
+
+
+Started GET "/api/v1/slack_class_periods" for ::1 at 2019-08-24 23:00:53 -0500
+Processing by Api::V1::SlackClassPeriodsController#index as */*
+  [1m[36mClassPeriod Load (48.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:9:in `index'
+Completed 200 OK in 54ms (Views: 4.9ms | ActiveRecord: 48.2ms | Allocations: 1498)
+
+
