@@ -17,20 +17,13 @@ class Api::V1::SlackClassPeriodsController < ApplicationController
   # POST /communities
   def create
     @class_period = ClassPeriod.new#(class_period_params)
+    @class_period.attendance_count = params[:text]
 
     if @class_period.save
       render json: @class_period, status: :created, location: api_v1_class_period_url(@class_period)
     else
       render json: @class_period.errors, status: :unprocessable_entity
     end
-
-    # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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 ok%
-    # c = Curl::Easy.new("https://hooks.slack.com/services/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") do |curl| 
-    #   curl.headers["Content-type"] = "application/json"
-    #   curl.data["text"] = "Hi from rails!"
-    #   curl.verbose = true
-    #  end      
-    #  c.perform
   end
 
   # PATCH/PUT /communities/1
