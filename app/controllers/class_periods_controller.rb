@@ -14,7 +14,7 @@ class ClassPeriodsController < ApplicationController
 
   # GET /class_periods/new
   def new
-    @class_period = ClassPeriod.new
+    @class_period = ClassPeriod.new(@school )
   end
 
   # GET /class_periods/1/edit

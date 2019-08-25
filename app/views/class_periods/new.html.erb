@@ -1,5 +1,12 @@
 <h1>New Class Period</h1>
 
+<pre>
+  <%= @school.inspect %>
+</pre>
+<pre>
+  <%= @class_period.inspect %>
+</pre>
+
 <%= render 'form', class_period: @class_period %>
 
 <%= link_to 'Back', class_periods_path %>

@@ -20,5 +20,6 @@
   <%= @school.class_periods %>
 </p>
 
+<%= link_to '+ Add Class Period', new_class_period_path(@school) %> |
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>

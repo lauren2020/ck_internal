@@ -61,6 +61,11 @@ class SchoolsController < ApplicationController
     end
   end
 
+  def add_new_class_period
+    @class_period = ClassPeriod.new
+    @school.class_periods.add(@class_period)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_school
