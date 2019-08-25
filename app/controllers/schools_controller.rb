@@ -10,6 +10,7 @@ class SchoolsController < ApplicationController
   # GET /schools/1
   # GET /schools/1.json
   def show
+    @class_periods = ClassPeriod.where(:week_day => "test_costum_apps")
   end
 
   # GET /schools/new
@@ -61,9 +62,8 @@ class SchoolsController < ApplicationController
     end
   end
 
-  def add_new_class_period
-    @class_period = ClassPeriod.new
-    @school.class_periods.add(@class_period)
+  def get_class_periods
+    ClassPeriod.where(:week_day => "test_costum_apps")
   end
 
   private

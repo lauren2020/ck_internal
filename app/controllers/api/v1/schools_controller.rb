@@ -47,6 +47,6 @@ class Api::V1::SchoolsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def school_params
-        params.permit(:name, :days, :avg_attendance, :class_periods)
+        params.permit(:name, :days, :avg_attendance, :class_periods, :channel_name)
     end
 end

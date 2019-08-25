@@ -1493,3 +1493,128 @@ Completed 500 Internal Server Error in 729ms (ActiveRecord: 612.3ms | Allocation
 ActiveRecord::AssociationTypeMismatch (School(#70236674772300) expected, got #<ActiveRecord::Relation [#<School id: 4, name: "test_costum_apps", days: [], avg_attendance: 0.0, created_at: "2019-08-25 04:12:43", updated_at: "2019-08-25 04:12:43", class_period_id: nil>]> which is an instance of School::ActiveRecord_Relation(#70236674771380)):
   
 app/controllers/api/v1/slack_class_periods_controller.rb:24:in `create'
+Started GET "/schools" for ::1 at 2019-08-24 23:37:17 -0500
+  [1m[35m (80.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (60.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."name" = $1[0m  [["name", "test_costum_apps"]]
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 309.5ms | Allocations: 6827)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2130ms (Views: 1751.9ms | ActiveRecord: 364.9ms | Allocations: 2082748)
+
+
+Started GET "/schools" for ::1 at 2019-08-24 23:42:29 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (130.4ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 350.6ms | Allocations: 6330)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 410ms (Views: 64.9ms | ActiveRecord: 337.2ms | Allocations: 17157)
+
+
+Started GET "/schools/4" for ::1 at 2019-08-24 23:42:31 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSchool Load (50.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mClassPeriod Load (54.4ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."week_day" = $1 LIMIT $2[0m  [["week_day", "test_costum_apps"], ["LIMIT", 11]]
+  Rendered schools/show.html.erb within layouts/application (Duration: 469.0ms | Allocations: 186025)
+Completed 500 Internal Server Error in 639ms (ActiveRecord: 212.0ms | Allocations: 188099)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `get_class_periods_school_path' for #<#<Class:0x00007fd50acee708>:0x00007fd50b3d4b58>):
+    17: 
+    18: <p>
+    19:   <strong>Class periods:</strong>
+    20:   <%= get_class_periods_school_path %>
+    21: </p>
+    22: 
+    23: <%= link_to '+ Add Class Period', new_class_period_path(@school) %> |
+  
+app/views/schools/show.html.erb:20
+Started GET "/schools/4" for ::1 at 2019-08-24 23:43:18 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSchool Load (48.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 15.8ms | Allocations: 3295)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 48.5ms | Allocations: 5221)
+
+
+  
+ActionView::Template::Error (undefined method `get_class_periods' for #<Class:0x00007fd50ad07c08>):
+    17: 
+    18: <p>
+    19:   <strong>Class periods:</strong>
+    20:   <%= School.get_class_periods %>
+    21: </p>
+    22: 
+    23: <%= link_to '+ Add Class Period', new_class_period_path(@school) %> |
+  
+app/views/schools/show.html.erb:20
+Started GET "/schools/4" for ::1 at 2019-08-24 23:43:32 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSchool Load (74.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 3551)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 74.5ms | Allocations: 5418)
+
+
+  
+ActionView::Template::Error (undefined method `get_class_periods' for #<School:0x00007fd5087d82c0>):
+    17: 
+    18: <p>
+    19:   <strong>Class periods:</strong>
+    20:   <%= @school.get_class_periods %>
+    21: </p>
+    22: 
+    23: <%= link_to '+ Add Class Period', new_class_period_path(@school) %> |
+  
+app/views/schools/show.html.erb:20
+  [1m[35m (49.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (61.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddChannelNameColumnToSchool (20190825184732)
+  [1m[35m (55.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (57.5ms)[0m  [1m[35mALTER TABLE "schools" ADD "channel_name" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (60.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190825184732"]]
+  [1m[35m (61.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (80.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (53.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (50.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (61.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (55.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDefaultToChannelNameColumnInSchool (20190825184910)
+  [1m[35m (57.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (61.2ms)[0m  [1m[35mALTER TABLE "schools" ALTER COLUMN "channel_name" TYPE character varying, ALTER COLUMN "channel_name" SET DEFAULT ''[0m
+  [1m[36mprimary::SchemaMigration Create (56.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190825184910"]]
+  [1m[35m (57.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (102.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (57.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (74.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/schools" for ::1 at 2019-08-25 13:52:43 -0500
+  [1m[35m (49.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"channel_name"=>"test_costum_apps", "name"=>"Test App School"}
+  [1m[35m (90.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:7:in `calculate_avg_attendance'
+  [1m[36mSchool Create (101.7ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at", "channel_name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test App School"], ["created_at", "2019-08-25 18:52:45.852674"], ["updated_at", "2019-08-25 18:52:45.852674"], ["channel_name", "test_costum_apps"]]
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+  [1m[35m (59.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+Completed 201 Created in 683ms (Views: 1.4ms | ActiveRecord: 634.7ms | Allocations: 15762)
+
+
