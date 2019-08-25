@@ -1480,3 +1480,16 @@ Processing by Api::V1::SlackClassPeriodsController#index as */*
 Completed 200 OK in 54ms (Views: 4.9ms | ActiveRecord: 48.2ms | Allocations: 1498)
 
 
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-24 23:21:30 -0500
+  [1m[35m (59.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"5", "channel_name"=>"test_costum_apps"}
+  [1m[36mSchool Load (72.7ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."name" = $1 LIMIT $2[0m  [["name", "test_costum_apps"], ["LIMIT", 11]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:24:in `create'
+Completed 500 Internal Server Error in 729ms (ActiveRecord: 612.3ms | Allocations: 17090)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (School(#70236674772300) expected, got #<ActiveRecord::Relation [#<School id: 4, name: "test_costum_apps", days: [], avg_attendance: 0.0, created_at: "2019-08-25 04:12:43", updated_at: "2019-08-25 04:12:43", class_period_id: nil>]> which is an instance of School::ActiveRecord_Relation(#70236674771380)):
+  
+app/controllers/api/v1/slack_class_periods_controller.rb:24:in `create'
