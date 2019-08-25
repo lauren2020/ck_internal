@@ -18,14 +18,15 @@ class Api::V1::SlackClassPeriodsController < ApplicationController
   def create
     @class_period = ClassPeriod.new#(class_period_params)
     @class_period.attendance_count = params[:text]
+    @class_period.date = Date.today
+    @class_period.channel_name = params[:channel_name]
 
     @school = School.where(:channel_name => params[:channel_name])
     #@school.class_periods << @class_period
     #@school.update(:class_periods => @class_period)
 
     if @class_period.save
-      render text: "Attendance of {@class_period.attendance_count} saved for {@school.name} on {@school.date}"
-      #render json: @class_period, status: :created, location: api_v1_class_period_url(@class_period)
+      render plain: "Attendance of " + @class_period.attendance_count.to_s + " saved for " + @school.name + " on " + @class_period.date.to_s
     else
       render json: @class_period.errors, status: :unprocessable_entity
     end

@@ -1618,3 +1618,413 @@ Processing by Api::V1::SchoolsController#create as */*
 Completed 201 Created in 683ms (Views: 1.4ms | ActiveRecord: 634.7ms | Allocations: 15762)
 
 
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 13:56:22 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"19", "name"=>"Test App School"}
+  [1m[35m (67.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (76.7ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 19], ["created_at", "2019-08-25 18:56:22.260103"], ["updated_at", "2019-08-25 18:56:22.260103"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (54.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+Completed 500 Internal Server Error in 231ms (ActiveRecord: 199.1ms | Allocations: 9179)
+
+
+  
+ActionView::MissingTemplate (Missing template api/v1/slack_class_periods/create, application/create with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/laurenshultz/Dev/GiitHub/CourteousKids/ck_internal/app/views"
+  * "/Users/laurenshultz/.rvm/gems/ruby-2.5.1/gems/actiontext-6.0.0/app/views"
+  * "/Users/laurenshultz/.rvm/gems/ruby-2.5.1/gems/actionmailbox-6.0.0/app/views"
+):
+  
+app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:44:31 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"19", "name"=>"Test App School"}
+  [1m[35m (56.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (91.4ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 19], ["created_at", "2019-08-25 19:44:32.547071"], ["updated_at", "2019-08-25 19:44:32.547071"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (58.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Completed 200 OK in 235ms (Views: 4.6ms | ActiveRecord: 205.8ms | Allocations: 8466)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:45:31 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"13", "channel_name"=>"test_costum_apps"}
+  [1m[35m (103.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (50.9ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 13], ["created_at", "2019-08-25 19:45:32.432958"], ["updated_at", "2019-08-25 19:45:32.432958"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (54.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 542ms (Views: 3.3ms | ActiveRecord: 519.0ms | Allocations: 8816)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:46:34 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"12", "channel_name"=>"test_costum_apps"}
+  [1m[35m (52.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (55.3ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 12], ["created_at", "2019-08-25 19:46:34.591723"], ["updated_at", "2019-08-25 19:46:34.591723"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (57.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+Completed 500 Internal Server Error in 419ms (ActiveRecord: 394.0ms | Allocations: 8493)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/api/v1/slack_class_periods_controller.rb:27:in `+'
+app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:47:35 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"12", "channel_name"=>"test_costum_apps"}
+  [1m[35m (57.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (56.5ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 12], ["created_at", "2019-08-25 19:47:36.640765"], ["updated_at", "2019-08-25 19:47:36.640765"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (58.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mSchool Load (57.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."channel_name" = $1 LIMIT $2[0m  [["channel_name", "test_costum_apps"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 699ms (ActiveRecord: 427.9ms | Allocations: 17555)
+
+
+  [1m[36mCACHE School Load (0.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."channel_name" = $1 LIMIT $2[0m  [["channel_name", "test_costum_apps"], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `date' for #<School::ActiveRecord_Relation:0x00007fa7bbcff340>
+Did you mean?  update):
+  
+app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:48:02 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"12", "channel_name"=>"test_costum_apps"}
+  [1m[35m (54.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (62.2ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 12], ["created_at", "2019-08-25 19:48:02.858657"], ["updated_at", "2019-08-25 19:48:02.858657"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (48.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+Completed 500 Internal Server Error in 447ms (ActiveRecord: 425.7ms | Allocations: 8558)
+
+
+  
+TypeError (no implicit conversion of Date into String):
+  
+app/controllers/api/v1/slack_class_periods_controller.rb:27:in `+'
+app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:48:16 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"12", "channel_name"=>"test_costum_apps"}
+  [1m[35m (48.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (60.4ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 12], ["created_at", "2019-08-25 19:48:16.892107"], ["updated_at", "2019-08-25 19:48:16.892107"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (50.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 2)
+Completed 200 OK in 433ms (Views: 1.0ms | ActiveRecord: 410.6ms | Allocations: 8564)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 14:48:51 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (52.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 123.4ms | Allocations: 6599)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2601ms (Views: 2463.4ms | ActiveRecord: 110.5ms | Allocations: 2078751)
+
+
+Started GET "/schools/5" for ::1 at 2019-08-25 14:48:59 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSchool Load (61.7ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  Rendering schools/show.html.erb within layouts/application
+  Rendered schools/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1009)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 155ms (Views: 20.3ms | ActiveRecord: 61.7ms | Allocations: 10623)
+
+
+Started DELETE "/schools/5" for ::1 at 2019-08-25 14:49:53 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"B1TcDM9pW2EBf4/8PKv0FhZAln0jJZIuvRk5OeKKYd6w/MwP8BKwllC7cGXxoYcsgedcTKvKnGsmDVFwt7dmZA==", "id"=>"5"}
+  [1m[36mSchool Load (49.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  [1m[35m (49.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[36mSchool Destroy (85.1ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[35m (56.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 248ms (ActiveRecord: 241.1ms | Allocations: 2760)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 14:49:53 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (50.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 53.4ms | Allocations: 1197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 18.6ms | ActiveRecord: 50.5ms | Allocations: 10036)
+
+
+Started POST "/api/v1/schools" for ::1 at 2019-08-25 14:50:17 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"channel_name"=>"test_costum_apps", "name"=>"TestAppSchool"}
+  [1m[35m (58.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+  [1m[36mSchool Create (57.3ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at", "channel_name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "TestAppSchool"], ["created_at", "2019-08-25 19:50:18.067239"], ["updated_at", "2019-08-25 19:50:18.067239"], ["channel_name", "test_costum_apps"]]
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+  [1m[35m (54.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+Completed 201 Created in 177ms (Views: 0.5ms | ActiveRecord: 170.0ms | Allocations: 2954)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:50:33 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"72", "channel_name"=>"test_costum_apps"}
+  [1m[35m (55.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[36mClassPeriod Create (51.8ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 72], ["created_at", "2019-08-25 19:50:33.988161"], ["updated_at", "2019-08-25 19:50:33.988161"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  [1m[35m (57.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:26:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 2)
+Completed 200 OK in 172ms (Views: 1.0ms | ActiveRecord: 164.4ms | Allocations: 2498)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:52:33 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"34", "channel_name"=>"test_costum_apps"}
+  [1m[35m (56.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[36mClassPeriod Create (59.7ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 34], ["created_at", "2019-08-25 19:52:34.504195"], ["updated_at", "2019-08-25 19:52:34.504195"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[35m (51.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[36mSchool Load (56.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."channel_name" = $1 LIMIT $2[0m  [["channel_name", "test_costum_apps"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 551ms (ActiveRecord: 406.6ms | Allocations: 16705)
+
+
+  [1m[36mCACHE School Load (0.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."channel_name" = $1 LIMIT $2[0m  [["channel_name", "test_costum_apps"], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `channel_name' for #<School::ActiveRecord_Relation:0x00007fa7be95a8b8>):
+  
+app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:53:15 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"34", "channel_name"=>"test_costum_apps"}
+  [1m[35m (68.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[36mClassPeriod Create (50.1ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 34], ["created_at", "2019-08-25 19:53:16.251555"], ["updated_at", "2019-08-25 19:53:16.251555"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[35m (58.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 2)
+Completed 200 OK in 509ms (Views: 2.0ms | ActiveRecord: 488.0ms | Allocations: 8520)
+
+
+Started GET "/api/v1/schools" for ::1 at 2019-08-25 14:53:41 -0500
+Processing by Api::V1::SchoolsController#index as */*
+  [1m[36mSchool Load (62.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:9:in `index'
+Completed 200 OK in 125ms (Views: 9.5ms | ActiveRecord: 114.4ms | Allocations: 6705)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 14:54:09 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (2799.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 2803.0ms | Allocations: 1394)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2870ms (Views: 69.6ms | ActiveRecord: 2799.9ms | Allocations: 10400)
+
+
+Started DELETE "/schools/1" for ::1 at 2019-08-25 14:54:16 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fJZBMtNBkVB+IR+s5Zv41KjYejxyzuXvN1sJXYkLsUrLPlEx7Dp6py/l4DUokYvuP3+wDfoh66qsT2EU3Da28A==", "id"=>"1"}
+  [1m[36mSchool Load (48.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  [1m[35m (99.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[36mSchool Destroy (51.8ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[35m (69.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 278ms (ActiveRecord: 269.5ms | Allocations: 2826)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 14:54:16 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (46.4ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 49.4ms | Allocations: 1195)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 18.7ms | ActiveRecord: 46.4ms | Allocations: 10031)
+
+
+Started DELETE "/schools/2" for ::1 at 2019-08-25 14:54:18 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FsUnfuqc0juQ+D0iCRzPamdpPOUiqcB/nRX9Lg362MChbTd91ec5zME8wrvEFrxQ8M721KpGzjoGAZVnWMffeg==", "id"=>"2"}
+  [1m[36mSchool Load (52.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  [1m[35m (108.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[36mSchool Destroy (49.7ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[35m (47.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 266ms (ActiveRecord: 258.4ms | Allocations: 2717)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 14:54:18 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (50.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 53.7ms | Allocations: 1064)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 20.8ms | ActiveRecord: 50.2ms | Allocations: 9902)
+
+
+Started DELETE "/schools/3" for ::1 at 2019-08-25 14:54:20 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q1SQOU4sZGViPE41qDYE82Fs6nTr0FwJkT9kSQfurqIc/IA6cVePkjP4saxlPHfJ9ssgRWM/UkwKKwwAUtOpGA==", "id"=>"3"}
+  [1m[36mSchool Load (63.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  [1m[35m (117.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[36mSchool Destroy (87.2ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[35m (73.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 349ms (ActiveRecord: 342.2ms | Allocations: 2723)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 14:54:21 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (122.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 125.1ms | Allocations: 934)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 142ms (Views: 19.1ms | ActiveRecord: 122.6ms | Allocations: 9768)
+
+
+Started DELETE "/schools/4" for ::1 at 2019-08-25 14:54:23 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PNUcYm5nNMDUGKjslp5l0cYy/X2ZXt3PBquBukVnv96LfQxhURzfN4XcV3VblBbrUZU3TBGx04qdv+nzEFq4ZA==", "id"=>"4"}
+  [1m[36mSchool Load (48.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_school'
+  [1m[35m (49.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[36mSchool Destroy (49.2ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+  [1m[35m (55.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:58:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 210ms (ActiveRecord: 203.0ms | Allocations: 2716)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 14:54:24 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (49.7ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 52.1ms | Allocations: 804)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 18.2ms | ActiveRecord: 49.7ms | Allocations: 9645)
+
+
+Started GET "/api/v1/schools" for ::1 at 2019-08-25 14:54:31 -0500
+Processing by Api::V1::SchoolsController#index as */*
+  [1m[36mSchool Load (53.7ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:9:in `index'
+Completed 200 OK in 60ms (Views: 5.2ms | ActiveRecord: 53.7ms | Allocations: 1134)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:54:47 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"23", "channel_name"=>"test_costum_apps"}
+  [1m[35m (47.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[36mClassPeriod Create (49.0ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 23], ["created_at", "2019-08-25 19:54:47.614494"], ["updated_at", "2019-08-25 19:54:47.614494"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[35m (68.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 2)
+Completed 200 OK in 174ms (Views: 0.7ms | ActiveRecord: 164.5ms | Allocations: 2487)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 14:55:04 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"2", "channel_name"=>"test_costum_apps"}
+  [1m[35m (52.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[36mClassPeriod Create (63.4ms)[0m  [1m[32mINSERT INTO "class_periods" ("attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attendance_count", 2], ["created_at", "2019-08-25 19:55:04.589507"], ["updated_at", "2019-08-25 19:55:04.589507"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  [1m[35m (56.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:27:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 2)
+Completed 200 OK in 452ms (Views: 0.9ms | ActiveRecord: 429.2ms | Allocations: 8550)
+
+
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 15:08:56 -0500
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"5", "channel_name"=>"test_costum_apps"}
+  [1m[35m (103.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+  [1m[36mClassPeriod Create (57.2ms)[0m  [1m[32mINSERT INTO "class_periods" ("date", "attendance_count", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["date", "2019-08-25"], ["attendance_count", 5], ["created_at", "2019-08-25 20:09:01.461439"], ["updated_at", "2019-08-25 20:09:01.461439"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+  [1m[35m (64.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.1ms | Allocations: 2)
+Completed 200 OK in 256ms (Views: 1.6ms | ActiveRecord: 225.3ms | Allocations: 8174)
+
+
+  [1m[35m (97.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (55.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddChannelNameToClassPeriod (20190825200947)
+  [1m[35m (50.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.3ms)[0m  [1m[35mALTER TABLE "class_periods" ADD "channel_name" character varying DEFAULT ''[0m
+  [1m[36mprimary::SchemaMigration Create (71.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190825200947"]]
+  [1m[35m (73.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (65.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (63.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (71.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/slack_class_periods" for ::1 at 2019-08-25 15:11:28 -0500
+  [1m[35m (110.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SlackClassPeriodsController#create as */*
+  Parameters: {"text"=>"3", "channel_name"=>"test_costum_apps"}
+  [1m[35m (53.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+  [1m[36mClassPeriod Create (68.9ms)[0m  [1m[32mINSERT INTO "class_periods" ("date", "attendance_count", "created_at", "updated_at", "channel_name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["date", "2019-08-25"], ["attendance_count", 3], ["created_at", "2019-08-25 20:11:29.460659"], ["updated_at", "2019-08-25 20:11:29.460659"], ["channel_name", "test_costum_apps"]]
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+  [1m[35m (66.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/slack_class_periods_controller.rb:28:in `create'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 2)
+Completed 200 OK in 743ms (Views: 1.6ms | ActiveRecord: 718.9ms | Allocations: 9320)
+
+
