@@ -12,13 +12,13 @@
     },
     "hello-world-bundle": {
       "js": [
-        "/packs/js/hello-world-bundle-2289eab8df132ac727e2.js"
+        "/packs/js/hello-world-bundle-9e8515525f7003e12797.js"
       ],
       "js.map": [
-        "/packs/js/hello-world-bundle-2289eab8df132ac727e2.js.map"
+        "/packs/js/hello-world-bundle-9e8515525f7003e12797.js.map"
       ]
     }
   },
-  "hello-world-bundle.js": "/packs/js/hello-world-bundle-2289eab8df132ac727e2.js",
-  "hello-world-bundle.js.map": "/packs/js/hello-world-bundle-2289eab8df132ac727e2.js.map"
+  "hello-world-bundle.js": "/packs/js/hello-world-bundle-9e8515525f7003e12797.js",
+  "hello-world-bundle.js.map": "/packs/js/hello-world-bundle-9e8515525f7003e12797.js.map"
 }

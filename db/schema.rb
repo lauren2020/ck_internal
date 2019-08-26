@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_235909) do
   enable_extension "plpgsql"
 
   create_table "class_periods", force: :cascade do |t|
-    t.date "date", default: "2019-08-24"
+    t.date "date", default: "2019-08-26"
     t.string "week_day", default: "Not Set"
     t.integer "attendance_count", default: 0
     t.datetime "created_at", precision: 6, null: false
