@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_212651) do
+ActiveRecord::Schema.define(version: 2019_08_25_235909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2019_08_25_212651) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "planning_hours", default: 0.0
     t.float "program_hours", default: 0.0
+    t.float "field_trip_hours", default: 0.0
+    t.float "training_hours", default: 0.0
   end
 
 end

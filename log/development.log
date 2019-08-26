@@ -3126,3 +3126,1761 @@ Processing by SchoolsController#index as HTML
 Completed 200 OK in 87ms (Views: 21.1ms | ActiveRecord: 64.1ms | Allocations: 10532)
 
 
+  [1m[35m (58.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (51.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1813353128640997125)[0m
+  [1m[35m (79.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTrainingHoursToStaff (20190825235909)
+  [1m[35m (56.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (76.2ms)[0m  [1m[35mALTER TABLE "staffs" ADD "field_trip_hours" float DEFAULT 0.0[0m
+  [1m[35m (121.7ms)[0m  [1m[35mALTER TABLE "staffs" ADD "training_hours" float DEFAULT 0.0[0m
+  [1m[36mprimary::SchemaMigration Create (99.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190825235909"]]
+  [1m[35m (68.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (68.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (158.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1813353128640997125)[0m
+  [1m[35m (76.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2019-08-25 19:07:12 -0500
+  [1m[35m (61.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 270)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 55.7ms | ActiveRecord: 0.0ms | Allocations: 10495)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:07:14 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (72.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 305.6ms | Allocations: 9077)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 331ms (Views: 40.0ms | ActiveRecord: 288.3ms | Allocations: 18837)
+
+
+Started GET "/staffs/1/edit" for ::1 at 2019-08-25 19:07:20 -0500
+Processing by StaffsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStaff Load (51.7ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/edit.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 5.5ms | Allocations: 2333)
+  Rendered staffs/edit.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2743)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 207ms (Views: 24.8ms | ActiveRecord: 106.9ms | Allocations: 12407)
+
+
+Started PATCH "/staffs/1" for ::1 at 2019-08-25 19:07:40 -0500
+Processing by StaffsController#update as HTML
+  Parameters: {"authenticity_token"=>"wQrSTXe8DV7K0h8XNMJWQdkZkx08sDFra3q7dh4whIF+70Lkv8IQS79O4PDJqskUk/qXXdp/1ld1ssY5nwqYaQ==", "staff"=>{"first_name"=>"Test", "last_name"=>"Staff", "training_hours"=>"5", "field_trip_hours"=>"2.3", "planning_hours"=>"1", "program_hours"=>"6"}, "commit"=>"Update Staff", "id"=>"1"}
+  [1m[36mStaff Load (47.8ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+[31mUnpermitted parameters: :training_hours, :field_trip_hours, :planning_hours, :program_hours[0m
+  [1m[35m (46.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[36mStaff Update (47.8ms)[0m  [1m[33mUPDATE "staffs" SET "total_hours" = $1, "updated_at" = $2 WHERE "staffs"."id" = $3[0m  [["total_hours", 0.0], ["updated_at", "2019-08-26 00:07:40.982541"], ["id", 1]]
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[35m (47.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+Redirected to http://localhost:3000/staffs/1
+Completed 302 Found in 201ms (ActiveRecord: 189.6ms | Allocations: 3468)
+
+
+Started GET "/staffs/1" for ::1 at 2019-08-25 19:07:41 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStaff Load (47.9ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 478)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 17.8ms | ActiveRecord: 47.9ms | Allocations: 10026)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:09:23 -0500
+  [1m[35m (58.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (47.5ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 358.5ms | Allocations: 9745)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1778ms (Views: 1428.1ms | ActiveRecord: 340.0ms | Allocations: 2083891)
+
+
+Started GET "/staffs/1/edit" for ::1 at 2019-08-25 19:09:28 -0500
+Processing by StaffsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStaff Load (56.8ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/edit.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 19.6ms | Allocations: 4256)
+  Rendered staffs/edit.html.erb within layouts/application (Duration: 23.1ms | Allocations: 4680)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 204ms (Views: 36.0ms | ActiveRecord: 113.6ms | Allocations: 14975)
+
+
+Started PATCH "/staffs/1" for ::1 at 2019-08-25 19:09:35 -0500
+Processing by StaffsController#update as HTML
+  Parameters: {"authenticity_token"=>"xfO2wZ5ayxu38gfku3LrS77hRyeHEuagUYm0mVNiP5N6FiZoViTWDsJu+ANGGnQe9AJDZ2HdAZxPQcnW0lgjew==", "staff"=>{"first_name"=>"Test", "last_name"=>"Staff", "training_hours"=>"1", "field_trip_hours"=>"0.0", "planning_hours"=>"0.0", "program_hours"=>"0.0"}, "commit"=>"Update Staff", "id"=>"1"}
+  [1m[36mStaff Load (52.1ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  [1m[35m (53.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[36mStaff Update (59.5ms)[0m  [1m[33mUPDATE "staffs" SET "training_hours" = $1, "total_hours" = $2, "updated_at" = $3 WHERE "staffs"."id" = $4[0m  [["training_hours", 1.0], ["total_hours", 1.0], ["updated_at", "2019-08-26 00:09:35.781711"], ["id", 1]]
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[35m (71.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+Redirected to http://localhost:3000/staffs/1
+Completed 302 Found in 247ms (ActiveRecord: 236.1ms | Allocations: 3691)
+
+
+Started GET "/staffs/1" for ::1 at 2019-08-25 19:09:35 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStaff Load (47.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 480)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 20.5ms | ActiveRecord: 47.3ms | Allocations: 10029)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:09:41 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (53.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 56.8ms | Allocations: 837)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 28.0ms | ActiveRecord: 53.3ms | Allocations: 9669)
+
+
+Started GET "/staffs/new" for ::1 at 2019-08-25 19:09:43 -0500
+Processing by StaffsController#new as HTML
+  Rendering staffs/new.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.7ms | Allocations: 1664)
+  Rendered staffs/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 10868)
+
+
+Started POST "/staffs" for ::1 at 2019-08-25 19:10:02 -0500
+Processing by StaffsController#create as HTML
+  Parameters: {"authenticity_token"=>"WjmeaIgRlzN+sx7d2YHpr/OacNozqSz1Y8b8lQHGC7133jxaD+5mTG1kzP7+07o0K3rmaTTLvXrWVFmiM9SEwA==", "staff"=>{"first_name"=>"Test2", "last_name"=>"Last2", "training_hours"=>"1", "field_trip_hours"=>"2", "planning_hours"=>"3", "program_hours"=>"4"}, "commit"=>"Create Staff"}
+  [1m[35m (84.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[36mStaff Create (50.8ms)[0m  [1m[32mINSERT INTO "staffs" ("first_name", "last_name", "total_hours", "created_at", "updated_at", "planning_hours", "program_hours", "field_trip_hours", "training_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Test2"], ["last_name", "Last2"], ["total_hours", 10.0], ["created_at", "2019-08-26 00:10:02.922418"], ["updated_at", "2019-08-26 00:10:02.922418"], ["planning_hours", 3.0], ["program_hours", 4.0], ["field_trip_hours", 2.0], ["training_hours", 1.0]]
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[35m (52.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/staffs/2
+Completed 302 Found in 196ms (ActiveRecord: 187.3ms | Allocations: 2906)
+
+
+Started GET "/staffs/2" for ::1 at 2019-08-25 19:10:03 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStaff Load (62.6ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 143)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 88ms (Views: 22.7ms | ActiveRecord: 62.6ms | Allocations: 9535)
+
+
+Started GET "/staffs/2/edit" for ::1 at 2019-08-25 19:10:19 -0500
+Processing by StaffsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStaff Load (64.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/edit.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.8ms | Allocations: 1682)
+  Rendered staffs/edit.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1810)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 19.9ms | ActiveRecord: 64.3ms | Allocations: 11191)
+
+
+Started PATCH "/staffs/2" for ::1 at 2019-08-25 19:10:59 -0500
+Processing by StaffsController#update as HTML
+  Parameters: {"authenticity_token"=>"7f+hc+l9ljEs569YIKR1BAdY1SPsSstbB3csCUTw2MzssXYSvvLFFloGv6Jx4zExrDCES77DXO8SUg8xvj/klw==", "staff"=>{"first_name"=>"Test2", "last_name"=>"Last2", "training_hours"=>"1.0", "field_trip_hours"=>"1.6", "planning_hours"=>"3.0", "program_hours"=>"4.0"}, "commit"=>"Update Staff", "id"=>"2"}
+  [1m[36mStaff Load (46.6ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  [1m[35m (56.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[36mStaff Update (48.5ms)[0m  [1m[33mUPDATE "staffs" SET "field_trip_hours" = $1, "total_hours" = $2, "updated_at" = $3 WHERE "staffs"."id" = $4[0m  [["field_trip_hours", 1.6], ["total_hours", 9.6], ["updated_at", "2019-08-26 00:10:59.830120"], ["id", 2]]
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[35m (61.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+Redirected to http://localhost:3000/staffs/2
+Completed 302 Found in 223ms (ActiveRecord: 213.5ms | Allocations: 3426)
+
+
+Started GET "/staffs/2" for ::1 at 2019-08-25 19:11:00 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStaff Load (47.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 471)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 19.6ms | ActiveRecord: 47.3ms | Allocations: 10818)
+
+
+Started GET "/staffs/2" for ::1 at 2019-08-25 19:11:24 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStaff Load (55.7ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 439)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 16.3ms | ActiveRecord: 55.7ms | Allocations: 10767)
+
+
+Started GET "/staffs/2" for ::1 at 2019-08-25 19:11:37 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStaff Load (53.9ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 397)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 18.1ms | ActiveRecord: 53.9ms | Allocations: 10723)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:11:41 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (90.1ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 93.2ms | Allocations: 1257)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 111ms (Views: 19.6ms | ActiveRecord: 90.1ms | Allocations: 10224)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:11:44 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 9940)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:11:46 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (67.6ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 70.1ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 18.2ms | ActiveRecord: 67.6ms | Allocations: 9792)
+
+
+Started GET "/staffs/1" for ::1 at 2019-08-25 19:11:51 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStaff Load (58.2ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 110)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 16.2ms | ActiveRecord: 58.2ms | Allocations: 9494)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:11:55 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (50.8ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 53.7ms | Allocations: 954)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 18.6ms | ActiveRecord: 50.8ms | Allocations: 9782)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:11:59 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 104)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 8936)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:12:00 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (66.7ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 207.8ms | Allocations: 6792)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 230ms (Views: 28.9ms | ActiveRecord: 196.1ms | Allocations: 17633)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:12:26 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.0ms | Allocations: 8935)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:28 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (63.8ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 194.2ms | Allocations: 9282)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 211ms (Views: 30.0ms | ActiveRecord: 178.6ms | Allocations: 18950)
+
+
+Started DELETE "/class_periods/10" for ::1 at 2019-08-25 19:12:31 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5gaJbfOteTT4oxPtc/RMEWL/k3H/0pjfjSV2DnaLx9BRrpluzNaSw6ln7HS+/j8r9VhZQHc9lpoWMR5HI7bAag==", "id"=>"10"}
+  [1m[36mClassPeriod Load (54.9ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (58.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (71.6ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (61.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 318ms (ActiveRecord: 247.0ms | Allocations: 2847)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:32 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (64.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 70.9ms | Allocations: 3159)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 88ms (Views: 22.7ms | ActiveRecord: 64.0ms | Allocations: 11990)
+
+
+Started DELETE "/class_periods/11" for ::1 at 2019-08-25 19:12:34 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UeB31ev+VnqAI+meX/mad7ReeWWTPu1jGrBWBBdTZmjmSGfW1IW9jdHnFgeS8+lNI/mzVBvR4yaBpD5NQm5h0g==", "id"=>"11"}
+  [1m[36mClassPeriod Load (48.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (56.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (51.7ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (50.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 214ms (ActiveRecord: 207.4ms | Allocations: 2720)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:34 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (57.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 66.0ms | Allocations: 3024)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 88ms (Views: 29.2ms | ActiveRecord: 57.5ms | Allocations: 11856)
+
+
+Started DELETE "/class_periods/12" for ::1 at 2019-08-25 19:12:36 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5wekSwFJHTvUkGF7JqicabGO2y4LmuLbeqlAu/rOVfdQr7RIPjL2zIVUnuLrou9TJikRH4N17J7hvSjyr/NSTQ==", "id"=>"12"}
+  [1m[36mClassPeriod Load (50.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (44.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (46.5ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 12]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (58.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 207ms (ActiveRecord: 199.7ms | Allocations: 2725)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:36 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (52.8ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 58.1ms | Allocations: 2885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 22.5ms | ActiveRecord: 52.8ms | Allocations: 11734)
+
+
+Started DELETE "/class_periods/13" for ::1 at 2019-08-25 19:12:38 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"M08dHvA00X3oiht4qv/5a1abvNuRkLZXOrNq+6xWQeeE5w0dz086irlO5OFn9YpRwTx26hl/uBKhpwKy+WtGXQ==", "id"=>"13"}
+  [1m[36mClassPeriod Load (56.3ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (158.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (55.7ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (56.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 335ms (ActiveRecord: 327.1ms | Allocations: 2718)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:38 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (56.7ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 61.2ms | Allocations: 2748)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 78ms (Views: 20.0ms | ActiveRecord: 56.7ms | Allocations: 11583)
+
+
+Started DELETE "/class_periods/14" for ::1 at 2019-08-25 19:12:40 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kNRtfJzTGdopKCWZv8L0uf9nzIKX4w8Xni3zYTlKmHYnfH1/o6jyLXjs2gByyIeDaMAGsx8MAVIFOZsobHefzA==", "id"=>"14"}
+  [1m[36mClassPeriod Load (51.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (90.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (51.8ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (51.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 251ms (ActiveRecord: 244.1ms | Allocations: 2713)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:40 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (56.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 61.3ms | Allocations: 2611)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 20.5ms | ActiveRecord: 56.1ms | Allocations: 11444)
+
+
+Started DELETE "/class_periods/15" for ::1 at 2019-08-25 19:12:41 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iZVXCsUShA2AXtcqCDuivvGRV4iP0K47014OtfdbSgI+PUcJ+mlv+tGaKLPFMdGEZjaduQc/oH5ISmb8omZNuA==", "id"=>"15"}
+  [1m[36mClassPeriod Load (78.7ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (52.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (56.0ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 15]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (46.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 241ms (ActiveRecord: 233.3ms | Allocations: 2718)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:42 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (49.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 55.1ms | Allocations: 2474)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 22.4ms | ActiveRecord: 49.2ms | Allocations: 11313)
+
+
+Started DELETE "/class_periods/16" for ::1 at 2019-08-25 19:12:43 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vu8Ul9rVZ6hyDAu6QXKP46aJaLNLZ96zfhEfNt/kcv0JRwSU5a6MXyPI9COMePzZMS6igsOI0PblBXd/itl1Rw==", "id"=>"16"}
+  [1m[36mClassPeriod Load (48.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (45.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (46.9ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 16]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (46.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 194ms (ActiveRecord: 187.2ms | Allocations: 2718)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:43 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (53.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 58.3ms | Allocations: 2337)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 21.1ms | ActiveRecord: 53.2ms | Allocations: 11171)
+
+
+Started DELETE "/class_periods/17" for ::1 at 2019-08-25 19:12:45 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"E5dZ1GHsvIcIteYFc/CnjNsxThCJ1roZUI3Bk/XitRSkP0nXXpdXcFlxGZy++tS2TJaEIQE5tFzLmanaoN+yrg==", "id"=>"17"}
+  [1m[36mClassPeriod Load (56.8ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (49.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (52.2ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 17]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (68.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 235ms (ActiveRecord: 227.0ms | Allocations: 2720)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:45 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (57.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 62.2ms | Allocations: 2200)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 21.9ms | ActiveRecord: 57.0ms | Allocations: 11038)
+
+
+Started DELETE "/class_periods/18" for ::1 at 2019-08-25 19:12:46 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1OC+2kTd2ruBN/woO6InNA0dd/ds7rwTaC2oKT6tGQtjSK7Ze6YxTNDzA7H2qFQOmrq9xuQBslbzOcBga5AesQ==", "id"=>"18"}
+  [1m[36mClassPeriod Load (60.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (49.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (57.3ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (49.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 224ms (ActiveRecord: 216.3ms | Allocations: 2716)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:47 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (59.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 64.1ms | Allocations: 2062)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 81ms (Views: 20.2ms | ActiveRecord: 59.6ms | Allocations: 10893)
+
+
+Started DELETE "/class_periods/19" for ::1 at 2019-08-25 19:12:50 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Jmo9mnUAAm95qJmMxm16WYbcgLXWqJCv5/L2VJE8rfORwi2ZSnvpmChsZhULZwljEXtKhF5Hnup85p4dxAGqSQ==", "id"=>"19"}
+  [1m[36mClassPeriod Load (51.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (50.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (55.6ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (49.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 215ms (ActiveRecord: 207.6ms | Allocations: 2716)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:50 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (52.7ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 57.8ms | Allocations: 1925)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 20.3ms | ActiveRecord: 52.7ms | Allocations: 10756)
+
+
+Started DELETE "/class_periods/20" for ::1 at 2019-08-25 19:12:52 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5J1AeXeynBNPcn3NEijXtF2G4pxxoLqgx/R5aCJjQ/FTNVB6SMl35B62glTfIqSOyiEorflPtOVc4BEhd15ESw==", "id"=>"20"}
+  [1m[36mClassPeriod Load (48.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (51.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (47.9ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (49.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 205ms (ActiveRecord: 196.9ms | Allocations: 2720)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:52 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (51.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 54.0ms | Allocations: 1788)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 15.4ms | ActiveRecord: 51.1ms | Allocations: 10622)
+
+
+Started DELETE "/class_periods/21" for ::1 at 2019-08-25 19:12:56 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rPPVCuKjP6hUJRIcvSug8/vxyp9aaPDhhL4sk9DPYBgbW8UJ3djUXwXh7YVwIdPJbFYArtKH/qQfqkTahfJnog==", "id"=>"21"}
+  [1m[36mClassPeriod Load (59.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (63.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (60.8ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (69.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 261ms (ActiveRecord: 252.8ms | Allocations: 2711)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:56 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (53.7ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 57.8ms | Allocations: 1651)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 21.5ms | ActiveRecord: 53.7ms | Allocations: 10487)
+
+
+Started DELETE "/class_periods/22" for ::1 at 2019-08-25 19:12:58 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rUPCATWC7swmO8ztLDK2jOQoOqHtTh6d4nrcCS3G/F4a69ICCvkFO3f/M3ThOMW2c4/wkGWhENh5brRAePv75A==", "id"=>"22"}
+  [1m[36mClassPeriod Load (63.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (52.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (51.4ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 22]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (49.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 224ms (ActiveRecord: 217.3ms | Allocations: 2721)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:58 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (51.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 56.1ms | Allocations: 1514)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 22.3ms | ActiveRecord: 51.5ms | Allocations: 10346)
+
+
+Started DELETE "/class_periods/23" for ::1 at 2019-08-25 19:12:59 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"b+9GTny77dzFJwkvBDyFFRnZdCJS/CDev15jyZsKuUnYR1ZNQ8AGK5Tj9rbJNvYvjn6+E9oTLpskSguAzje+8w==", "id"=>"23"}
+  [1m[36mClassPeriod Load (56.7ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (52.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (75.8ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 23]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (51.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 251ms (ActiveRecord: 235.8ms | Allocations: 2718)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:12:59 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (50.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 54.2ms | Allocations: 1377)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 20.6ms | ActiveRecord: 50.0ms | Allocations: 10213)
+
+
+Started DELETE "/class_periods/24" for ::1 at 2019-08-25 19:13:01 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"H/w/PQEiZSBBqUWFJ85LvfMaehA78PVqc8R1FvQiPYuoVC8+PlmO1xBtuhzqxDiHZL2wIbMf+y/o0B1foR86MQ==", "id"=>"24"}
+  [1m[36mClassPeriod Load (45.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (47.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (46.0ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (53.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 201ms (ActiveRecord: 192.6ms | Allocations: 2719)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:13:01 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (48.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 52.5ms | Allocations: 1240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 20.2ms | ActiveRecord: 48.6ms | Allocations: 10074)
+
+
+Started DELETE "/class_periods/25" for ::1 at 2019-08-25 19:13:03 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+Ajo5IkC/Ech37LAstd1u/4lFiu6gccVmsYOoTRrouZPoPjntnkXsHAbTVl/3QaBaYLcGjJuyVAB0mboYValXA==", "id"=>"25"}
+  [1m[36mClassPeriod Load (47.4ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (50.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (44.4ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (52.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 202ms (ActiveRecord: 194.7ms | Allocations: 2716)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:13:03 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (64.8ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 68.0ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 86ms (Views: 20.6ms | ActiveRecord: 64.8ms | Allocations: 9936)
+
+
+Started DELETE "/class_periods/26" for ::1 at 2019-08-25 19:13:05 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jhObdnk24yyyOML/CJCe0ivjCjGyJnOSfWU3vGDFd885u4t1Rk0I2+P8PWbFmu3ovETAADrJfdfmcV/1NfhwdQ==", "id"=>"26"}
+  [1m[36mClassPeriod Load (45.4ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (46.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (52.0ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 26]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (82.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 234ms (ActiveRecord: 226.5ms | Allocations: 2714)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:13:06 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (52.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 54.8ms | Allocations: 965)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 19.0ms | ActiveRecord: 52.2ms | Allocations: 9801)
+
+
+Started DELETE "/class_periods/27" for ::1 at 2019-08-25 19:13:07 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zQXDyzP3b+BHMbMECIHC9ZtV38HxmC9ugXKo9SryEV16rdPIDIyEFxb1TJ3Fi7HPDPIV8Hl3ISsaZsC8f88W5w==", "id"=>"27"}
+  [1m[36mClassPeriod Load (88.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (50.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (50.3ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 27]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (74.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 271ms (ActiveRecord: 263.8ms | Allocations: 2718)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:13:08 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (50.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 52.4ms | Allocations: 828)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 19.1ms | ActiveRecord: 50.6ms | Allocations: 9663)
+
+
+Started DELETE "/class_periods/28" for ::1 at 2019-08-25 19:13:09 -0500
+Processing by ClassPeriodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"435uR72Q3Gv/fN9Dv3Nypt2E26c1qCBHfuq4jGnUhURU1n5Egus3nK64INpyeQGcSiMRlr1HLgLl/tDFPOmC/g==", "id"=>"28"}
+  [1m[36mClassPeriod Load (47.4ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/class_periods_controller.rb:67:in `set_class_period'
+  [1m[35m (46.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[36mClassPeriod Destroy (51.0ms)[0m  [1m[31mDELETE FROM "class_periods" WHERE "class_periods"."id" = $1[0m  [["id", 28]]
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+  [1m[35m (55.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/class_periods_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/class_periods
+Completed 302 Found in 210ms (ActiveRecord: 200.3ms | Allocations: 2715)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:13:10 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (50.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 52.2ms | Allocations: 692)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 25.4ms | ActiveRecord: 50.0ms | Allocations: 9528)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:13:11 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 8940)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:13:14 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (54.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 57.2ms | Allocations: 830)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 17.9ms | ActiveRecord: 54.8ms | Allocations: 9656)
+
+
+Started GET "/schools/6" for ::1 at 2019-08-25 19:13:16 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSchool Load (58.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[36mClassPeriod Load (51.9ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "test_costum_apps"]]
+  ↳ app/controllers/schools_controller.rb:69:in `set_avg_attendance'
+  [1m[35m (48.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "test_costum_apps"]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_avg_attendance'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "test_costum_apps"]]
+  ↳ app/views/schools/show.html.erb:28
+  Rendered schools/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1108)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 282ms (Views: 18.8ms | ActiveRecord: 159.0ms | Allocations: 11994)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:13:20 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (52.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 54.4ms | Allocations: 825)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 19.3ms | ActiveRecord: 52.1ms | Allocations: 9649)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-25 19:13:31 -0500
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 12.2ms | Allocations: 6663)
+  Rendered schools/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 7024)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.0ms | Allocations: 15910)
+
+
+Started POST "/schools" for ::1 at 2019-08-25 19:13:54 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"rhKTVkz10/U8flKgR81CXK8Ef1kHcWuDXhJb9XN/l/m93sN5BMTho2iaozh5g/75YcHagARGxbLJGM07cP5Awg==", "school"=>{"name"=>"Morton", "channel_name"=>"morton", "days"=>"Monday"}, "commit"=>"Create School"}
+[31mUnpermitted parameter: :channel_name[0m
+  [1m[35m (61.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (56.3ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (70.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[36mSchool Create (56.9ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Morton"], ["created_at", "2019-08-26 00:13:55.056993"], ["updated_at", "2019-08-26 00:13:55.056993"]]
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+  [1m[35m (59.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/schools/7
+Completed 302 Found in 317ms (ActiveRecord: 305.6ms | Allocations: 4046)
+
+
+Started GET "/schools/7" for ::1 at 2019-08-25 19:13:55 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mSchool Load (65.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[36mClassPeriod Load (53.4ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/controllers/schools_controller.rb:69:in `set_avg_attendance'
+  [1m[35m (55.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_avg_attendance'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/views/schools/show.html.erb:28
+  Rendered schools/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 742)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 199ms (Views: 18.1ms | ActiveRecord: 174.2ms | Allocations: 11360)
+
+
+Started GET "/schools/7/edit" for ::1 at 2019-08-25 19:14:02 -0500
+Processing by SchoolsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mSchool Load (49.3ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  Rendering schools/edit.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 2.2ms | Allocations: 1122)
+  Rendered schools/edit.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1392)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 20.8ms | ActiveRecord: 49.3ms | Allocations: 10915)
+
+
+Started PATCH "/schools/7" for ::1 at 2019-08-25 19:14:07 -0500
+Processing by SchoolsController#update as HTML
+  Parameters: {"authenticity_token"=>"6hmFOwNy+VsZq0h9Zg5T437231YUgL6luJA0OudB3dHkboSrufruxMjEOmfr2XSvvTYdqNh4Hdioex7Wp2TzPg==", "school"=>{"name"=>"Morton", "channel_name"=>"morton", "days"=>"Monday"}, "commit"=>"Update School", "id"=>"7"}
+  [1m[36mSchool Load (64.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+[31mUnpermitted parameter: :channel_name[0m
+  [1m[35m (47.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (87.8ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (50.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[35m (56.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:46:in `block in update'
+Redirected to http://localhost:3000/schools/7
+Completed 302 Found in 318ms (ActiveRecord: 307.2ms | Allocations: 3708)
+
+
+Started GET "/schools/7" for ::1 at 2019-08-25 19:14:07 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mSchool Load (78.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[36mClassPeriod Load (50.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/controllers/schools_controller.rb:69:in `set_avg_attendance'
+  [1m[35m (50.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_avg_attendance'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/views/schools/show.html.erb:28
+  Rendered schools/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 742)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 203ms (Views: 17.6ms | ActiveRecord: 179.7ms | Allocations: 11364)
+
+
+Started POST "/api/v1/schools" for ::1 at 2019-08-25 19:14:28 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"text"=>"35", "channel_name"=>"test_costum_apps"}
+[31mUnpermitted parameter: :text[0m
+  [1m[35m (66.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (63.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "test_costum_apps"]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (54.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "test_costum_apps"]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[36mSchool Create (62.2ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at", "channel_name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2019-08-26 00:14:28.871103"], ["updated_at", "2019-08-26 00:14:28.871103"], ["channel_name", "test_costum_apps"]]
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+  [1m[35m (50.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+Completed 201 Created in 309ms (Views: 0.5ms | ActiveRecord: 297.4ms | Allocations: 3873)
+
+
+Started POST "/api/v1/schools" for ::1 at 2019-08-25 19:14:48 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  [1m[35m (300.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (55.8ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (65.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[36mSchool Create (81.4ms)[0m  [1m[32mINSERT INTO "schools" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-08-26 00:14:49.605007"], ["updated_at", "2019-08-26 00:14:49.605007"]]
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+  [1m[35m (59.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+Completed 201 Created in 573ms (Views: 0.4ms | ActiveRecord: 563.1ms | Allocations: 3722)
+
+
+Started GET "/api/v1/schools" for ::1 at 2019-08-25 19:14:54 -0500
+Processing by Api::V1::SchoolsController#index as */*
+  [1m[36mSchool Load (49.7ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:9:in `index'
+Completed 200 OK in 54ms (Views: 3.9ms | ActiveRecord: 49.7ms | Allocations: 1622)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:16:26 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (47.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 54.7ms | Allocations: 1521)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 43.8ms | ActiveRecord: 47.9ms | Allocations: 11294)
+
+
+Started DELETE "/schools/8" for ::1 at 2019-08-25 19:16:29 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"uwn8cVf50y4iwcR6V/HT3t2/m2HDrB4/R+ZhMvAzlGsMoexyaII42XMFO+Oa+6DkShhRUEtDEHrc8gl7pQ6T0Q==", "id"=>"8"}
+  [1m[36mSchool Load (50.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[35m (75.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[36mSchool Destroy (58.2ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[35m (48.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 239ms (ActiveRecord: 231.7ms | Allocations: 2723)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:16:29 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (75.1ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 78.3ms | Allocations: 1095)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 19.4ms | ActiveRecord: 75.1ms | Allocations: 9935)
+
+
+Started DELETE "/schools/9" for ::1 at 2019-08-25 19:16:32 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"92+Y0NT97iyv8w6tP5x1UsbpY7uaItg+aIZpPxw2T85Ax4jT64YF2/438TTylgZoUU6pihLN1nvzkgF2SQtIdA==", "id"=>"9"}
+  [1m[36mSchool Load (51.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[35m (53.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[36mSchool Destroy (51.5ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[35m (60.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 223ms (ActiveRecord: 216.8ms | Allocations: 2717)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:16:32 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (71.3ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 73.7ms | Allocations: 954)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 91ms (Views: 18.2ms | ActiveRecord: 71.3ms | Allocations: 9798)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-25 19:16:35 -0500
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 3.2ms | Allocations: 1455)
+  Rendered schools/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1813)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 10787)
+
+
+Started POST "/schools" for ::1 at 2019-08-25 19:16:56 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"VTs+nFFmBb5X422OqP/TPhD0YjI82EarxX9frNeYHx9G926zGVc36AMHnBaWsW+b3jHH6z/v6JpSdcli1BnIJA==", "school"=>{"name"=>"Marrs", "channel_name"=>"marrs", "days"=>"Monday"}, "commit"=>"Create School"}
+[31mUnpermitted parameter: :channel_name[0m
+  [1m[35m (50.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (51.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (55.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[36mSchool Create (51.6ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Marrs"], ["created_at", "2019-08-26 00:16:57.141051"], ["updated_at", "2019-08-26 00:16:57.141051"]]
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+  [1m[35m (51.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/schools/10
+Completed 302 Found in 271ms (ActiveRecord: 260.8ms | Allocations: 3910)
+
+
+Started GET "/schools/10" for ::1 at 2019-08-25 19:16:57 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSchool Load (49.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[36mClassPeriod Load (57.4ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/controllers/schools_controller.rb:69:in `set_avg_attendance'
+  [1m[35m (57.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_avg_attendance'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", ""]]
+  ↳ app/views/schools/show.html.erb:28
+  Rendered schools/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1095)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 189ms (Views: 18.3ms | ActiveRecord: 164.0ms | Allocations: 11858)
+
+
+Started POST "/api/v1/schools" for ::1 at 2019-08-25 19:17:58 -0500
+Processing by Api::V1::SchoolsController#create as */*
+  Parameters: {"channel_name"=>"lewis_and_clark", "name"=>"Lewis & Clark"}
+  [1m[35m (52.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (45.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "lewis_and_clark"]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (52.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "lewis_and_clark"]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[36mSchool Create (48.8ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at", "channel_name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Lewis & Clark"], ["created_at", "2019-08-26 00:17:58.653275"], ["updated_at", "2019-08-26 00:17:58.653275"], ["channel_name", "lewis_and_clark"]]
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+  [1m[35m (46.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:21:in `create'
+Completed 201 Created in 254ms (Views: 0.4ms | ActiveRecord: 245.6ms | Allocations: 3799)
+
+
+Started PATCH "/api/v1/schools/11" for ::1 at 2019-08-25 19:18:35 -0500
+Processing by Api::V1::SchoolsController#update as */*
+  Parameters: {"days"=>"[\"Tuesday\", \"Thursday\"]", "id"=>"11"}
+  [1m[36mSchool Load (92.0ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/schools_controller.rb:45:in `set_school'
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (50.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (53.9ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "lewis_and_clark"]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (101.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "lewis_and_clark"]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[35m (48.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/schools_controller.rb:30:in `update'
+Completed 200 OK in 364ms (Views: 0.4ms | ActiveRecord: 346.3ms | Allocations: 3539)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:18:52 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (63.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 66.5ms | Allocations: 1219)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 97ms (Views: 32.4ms | ActiveRecord: 63.5ms | Allocations: 10040)
+
+
+Started GET "/schools/11" for ::1 at 2019-08-25 19:18:54 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSchool Load (199.3ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[36mClassPeriod Load (51.4ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "lewis_and_clark"]]
+  ↳ app/controllers/schools_controller.rb:69:in `set_avg_attendance'
+  [1m[35m (47.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "lewis_and_clark"]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_avg_attendance'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "lewis_and_clark"]]
+  ↳ app/views/schools/show.html.erb:28
+  Rendered schools/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 736)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 320ms (Views: 16.6ms | ActiveRecord: 298.2ms | Allocations: 11340)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:18:58 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (61.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 64.9ms | Allocations: 1214)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 20.5ms | ActiveRecord: 61.5ms | Allocations: 10038)
+
+
+Started DELETE "/schools/10" for ::1 at 2019-08-25 19:19:07 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"d4MEvYfvpS1nklf+6nc77HwsimMSATOZZ23xKLdSgATAKxS+uJRO2jZWqGcnfUjW64tAUpruPdz8eZlh4m+Hvg==", "id"=>"10"}
+  [1m[36mSchool Load (77.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[35m (58.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[36mSchool Destroy (58.9ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[35m (66.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 271ms (ActiveRecord: 262.1ms | Allocations: 2720)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:19:08 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (53.6ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 56.9ms | Allocations: 1085)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 20.0ms | ActiveRecord: 53.6ms | Allocations: 9920)
+
+
+Started DELETE "/schools/7" for ::1 at 2019-08-25 19:19:10 -0500
+Processing by SchoolsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XjRI4yjXae+9zRr/hLtPZJmpHl11Ot1KocYZssy+04HpnFjgF6yCGOwJ5WZJsTxeDg7UbP3V0w860nH7mYPUOw==", "id"=>"7"}
+  [1m[36mSchool Load (48.4ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[35m (60.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[36mSchool Destroy (50.2ms)[0m  [1m[31mDELETE FROM "schools" WHERE "schools"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+  [1m[35m (50.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/schools
+Completed 302 Found in 228ms (ActiveRecord: 209.8ms | Allocations: 2714)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:19:11 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (55.9ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 59.2ms | Allocations: 954)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 20.5ms | ActiveRecord: 55.9ms | Allocations: 9790)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-25 19:28:51 -0500
+  [1m[35m (107.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 14.2ms | Allocations: 3755)
+  Rendered schools/new.html.erb within layouts/application (Duration: 17.2ms | Allocations: 4396)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2516ms (Views: 2027.2ms | ActiveRecord: 460.2ms | Allocations: 2085597)
+
+
+Started POST "/schools" for ::1 at 2019-08-25 19:29:02 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"cN7+OewJRVfmaBJ8f2aqbB+RjNawFc5TlxlBLZs5zgJjEq4WpDh3AbKM4+RBKBbJ0VQpD7MiYGIAE9fjmLgZOQ==", "school"=>{"name"=>"Morton", "channel_name"=>"morton", "days"=>"Monday"}, "commit"=>"Create School"}
+  [1m[35m (50.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:7:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (54.1ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "morton"]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (49.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "morton"]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[36mSchool Create (49.9ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at", "channel_name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Morton"], ["created_at", "2019-08-26 00:29:03.000553"], ["updated_at", "2019-08-26 00:29:03.000553"], ["channel_name", "morton"]]
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+  [1m[35m (47.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/schools/12
+Completed 302 Found in 434ms (ActiveRecord: 352.8ms | Allocations: 5855)
+
+
+Started GET "/schools/12" for ::1 at 2019-08-25 19:29:03 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSchool Load (50.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[36mClassPeriod Load (51.2ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "morton"]]
+  ↳ app/controllers/schools_controller.rb:69:in `set_avg_attendance'
+  [1m[35m (58.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "morton"]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_avg_attendance'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "morton"]]
+  ↳ app/views/schools/show.html.erb:28
+  Rendered schools/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 256ms (Views: 33.9ms | ActiveRecord: 160.2ms | Allocations: 12083)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:29:07 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (64.8ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 71.4ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 102ms (Views: 35.0ms | ActiveRecord: 64.8ms | Allocations: 10379)
+
+
+Started GET "/schools/new" for ::1 at 2019-08-25 19:29:09 -0500
+Processing by SchoolsController#new as HTML
+  Rendering schools/new.html.erb within layouts/application
+  Rendered schools/_form.html.erb (Duration: 2.3ms | Allocations: 1073)
+  Rendered schools/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1171)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.0ms | Allocations: 10018)
+
+
+Started POST "/schools" for ::1 at 2019-08-25 19:29:15 -0500
+Processing by SchoolsController#create as HTML
+  Parameters: {"authenticity_token"=>"PU8H5t36V0snAO4vLXcHK87lUNopLBN6O1uiAUVoj38ug1fJlctlHXPkH7cTObuOACD1AyobvUusUTTPRulYRA==", "school"=>{"name"=>"Marrs", "channel_name"=>"marrs", "days"=>"Monday"}, "commit"=>"Create School"}
+  [1m[35m (55.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[36mClassPeriod Load (63.5ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "marrs"]]
+  ↳ app/models/school.rb:8:in `calculate_avg_attendance'
+  [1m[35m (56.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "marrs"]]
+  ↳ app/models/school.rb:11:in `calculate_avg_attendance'
+  [1m[36mSchool Create (62.8ms)[0m  [1m[32mINSERT INTO "schools" ("name", "created_at", "updated_at", "channel_name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Marrs"], ["created_at", "2019-08-26 00:29:15.966195"], ["updated_at", "2019-08-26 00:29:15.966195"], ["channel_name", "marrs"]]
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+  [1m[35m (52.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/schools_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/schools/13
+Completed 302 Found in 301ms (ActiveRecord: 291.0ms | Allocations: 3929)
+
+
+Started GET "/schools/13" for ::1 at 2019-08-25 19:29:16 -0500
+Processing by SchoolsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mSchool Load (56.2ms)[0m  [1m[34mSELECT "schools".* FROM "schools" WHERE "schools"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/schools_controller.rb:83:in `set_school'
+  [1m[36mClassPeriod Load (54.7ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "marrs"]]
+  ↳ app/controllers/schools_controller.rb:69:in `set_avg_attendance'
+  [1m[35m (55.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "marrs"]]
+  ↳ app/controllers/schools_controller.rb:72:in `set_avg_attendance'
+  Rendering schools/show.html.erb within layouts/application
+  [1m[36mCACHE ClassPeriod Load (0.0ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods" WHERE "class_periods"."channel_name" = $1[0m  [["channel_name", "marrs"]]
+  ↳ app/views/schools/show.html.erb:28
+  Rendered schools/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 741)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 194ms (Views: 22.0ms | ActiveRecord: 166.0ms | Allocations: 11367)
+
+
+Started GET "/schools" for ::1 at 2019-08-25 19:29:19 -0500
+Processing by SchoolsController#index as HTML
+  Rendering schools/index.html.erb within layouts/application
+  [1m[36mSchool Load (68.5ms)[0m  [1m[34mSELECT "schools".* FROM "schools"[0m
+  ↳ app/views/schools/index.html.erb:16
+  Rendered schools/index.html.erb within layouts/application (Duration: 71.7ms | Allocations: 1214)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 90ms (Views: 20.3ms | ActiveRecord: 68.5ms | Allocations: 10033)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:29:22 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 274)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 9938)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:29:25 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (48.9ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 52.0ms | Allocations: 1000)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 21.8ms | ActiveRecord: 48.9ms | Allocations: 10467)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:29:26 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms | Allocations: 8944)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:29:27 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (56.1ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 174.8ms | Allocations: 9072)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 199ms (Views: 34.1ms | ActiveRecord: 161.6ms | Allocations: 18826)
+
+
+Started GET "/staffs/new" for ::1 at 2019-08-25 19:29:29 -0500
+Processing by StaffsController#new as HTML
+  Rendering staffs/new.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 4.8ms | Allocations: 2337)
+  Rendered staffs/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2692)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.0ms | Allocations: 11665)
+
+
+Started POST "/staffs" for ::1 at 2019-08-25 19:29:39 -0500
+Processing by StaffsController#create as HTML
+  Parameters: {"authenticity_token"=>"ZswKuVDxWk7NvzRQu2uip1NKVNZ16wB0dTup2mEUCvpLK6iL1w6rMd5o5nOcOfE8i6rCZXKJkfvAqQztUwaFhw==", "staff"=>{"first_name"=>"Mad", "last_name"=>"Swanson", "training_hours"=>"0.0", "field_trip_hours"=>"0.0", "planning_hours"=>"0.0", "program_hours"=>"0.0"}, "commit"=>"Create Staff"}
+  [1m[35m (51.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[36mStaff Create (97.5ms)[0m  [1m[32mINSERT INTO "staffs" ("first_name", "last_name", "total_hours", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Mad"], ["last_name", "Swanson"], ["total_hours", 0.0], ["created_at", "2019-08-26 00:29:39.882615"], ["updated_at", "2019-08-26 00:29:39.882615"]]
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[35m (54.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/staffs/3
+Completed 302 Found in 211ms (ActiveRecord: 203.3ms | Allocations: 2876)
+
+
+Started GET "/staffs/3" for ::1 at 2019-08-25 19:29:40 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStaff Load (52.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 410)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 167ms (Views: 20.1ms | ActiveRecord: 52.3ms | Allocations: 10062)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:29:41 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (58.1ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 60.5ms | Allocations: 1086)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 19.6ms | ActiveRecord: 58.1ms | Allocations: 9908)
+
+
+Started DELETE "/staffs/2" for ::1 at 2019-08-25 19:29:45 -0500
+Processing by StaffsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oFEDQ5ogBDALxURx6L5n0sZT0BWKrYb3FFKVleXbs1MX+RNApVvvx1oBu+gltBToUfQaJAJCiLKPRv3csOa06Q==", "id"=>"2"}
+  [1m[36mStaff Load (52.0ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  [1m[35m (52.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:57:in `destroy'
+  [1m[36mStaff Destroy (49.1ms)[0m  [1m[31mDELETE FROM "staffs" WHERE "staffs"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/staffs_controller.rb:57:in `destroy'
+  [1m[35m (50.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/staffs
+Completed 302 Found in 211ms (ActiveRecord: 203.9ms | Allocations: 2745)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:29:45 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (54.6ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 57.3ms | Allocations: 957)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 21.0ms | ActiveRecord: 54.6ms | Allocations: 9796)
+
+
+Started DELETE "/staffs/1" for ::1 at 2019-08-25 19:29:47 -0500
+Processing by StaffsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yaNPH04qllCuHtgjq2fRQtzVfSx3PFHMmVAKQtE/oeR+C18ccVF9p//aJ7pmbaJ4S3K3Hf/TX4kCRGILhAKmXg==", "id"=>"1"}
+  [1m[36mStaff Load (49.0ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  [1m[35m (51.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:57:in `destroy'
+  [1m[36mStaff Destroy (48.5ms)[0m  [1m[31mDELETE FROM "staffs" WHERE "staffs"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/staffs_controller.rb:57:in `destroy'
+  [1m[35m (47.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/staffs
+Completed 302 Found in 205ms (ActiveRecord: 196.9ms | Allocations: 2727)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:29:47 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (46.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 49.6ms | Allocations: 829)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 21.9ms | ActiveRecord: 46.3ms | Allocations: 9673)
+
+
+Started GET "/staffs/new" for ::1 at 2019-08-25 19:29:50 -0500
+Processing by StaffsController#new as HTML
+  Rendering staffs/new.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.0ms | Allocations: 1638)
+  Rendered staffs/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1735)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 10573)
+
+
+Started POST "/staffs" for ::1 at 2019-08-25 19:30:10 -0500
+Processing by StaffsController#create as HTML
+  Parameters: {"authenticity_token"=>"Mz7WA/HeKtc7Wn3Pq3kBSLEevSWnwxINsdA43hz6um8e2XQxdiHbqCiNr+yMK1LTaf4rlqChg4IEQp3pLug1Eg==", "staff"=>{"first_name"=>"Meka", "last_name"=>"Tate", "training_hours"=>"0.0", "field_trip_hours"=>"0.0", "planning_hours"=>"0.0", "program_hours"=>"0.0"}, "commit"=>"Create Staff"}
+  [1m[35m (51.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[36mStaff Create (75.9ms)[0m  [1m[32mINSERT INTO "staffs" ("first_name", "last_name", "total_hours", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Meka"], ["last_name", "Tate"], ["total_hours", 0.0], ["created_at", "2019-08-26 00:30:10.197160"], ["updated_at", "2019-08-26 00:30:10.197160"]]
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[35m (71.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/staffs/4
+Completed 302 Found in 206ms (ActiveRecord: 198.2ms | Allocations: 2813)
+
+
+Started GET "/staffs/4" for ::1 at 2019-08-25 19:30:10 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStaff Load (68.0ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 99ms (Views: 27.6ms | ActiveRecord: 68.0ms | Allocations: 9503)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:30:12 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (93.9ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 96.4ms | Allocations: 954)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 114ms (Views: 18.8ms | ActiveRecord: 93.9ms | Allocations: 9781)
+
+
+Started GET "/staffs/new" for ::1 at 2019-08-25 19:30:15 -0500
+Processing by StaffsController#new as HTML
+  Rendering staffs/new.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.1ms | Allocations: 1636)
+  Rendered staffs/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1733)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 10575)
+
+
+Started POST "/staffs" for ::1 at 2019-08-25 19:30:22 -0500
+Processing by StaffsController#create as HTML
+  Parameters: {"authenticity_token"=>"8h/o+XOJk1AqURwKiDlqYwQNvK+cT+bdgrQTaFLtVArf+ErL9HZiLzmGzimvazn43O0qHJstd1I3JrZfYP/bdw==", "staff"=>{"first_name"=>"Tabitha", "last_name"=>"Raven", "training_hours"=>"0.0", "field_trip_hours"=>"0.0", "planning_hours"=>"0.0", "program_hours"=>"0.0"}, "commit"=>"Create Staff"}
+  [1m[35m (55.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[36mStaff Create (69.0ms)[0m  [1m[32mINSERT INTO "staffs" ("first_name", "last_name", "total_hours", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Tabitha"], ["last_name", "Raven"], ["total_hours", 0.0], ["created_at", "2019-08-26 00:30:22.230884"], ["updated_at", "2019-08-26 00:30:22.230884"]]
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[35m (49.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/staffs/5
+Completed 302 Found in 181ms (ActiveRecord: 173.9ms | Allocations: 2806)
+
+
+Started GET "/staffs/5" for ::1 at 2019-08-25 19:30:22 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStaff Load (47.5ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 16.0ms | ActiveRecord: 47.5ms | Allocations: 9517)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:30:24 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (64.5ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 67.1ms | Allocations: 1082)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 18.0ms | ActiveRecord: 64.5ms | Allocations: 9901)
+
+
+Started GET "/staffs/new" for ::1 at 2019-08-25 19:30:28 -0500
+Processing by StaffsController#new as HTML
+  Rendering staffs/new.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 2.9ms | Allocations: 1636)
+  Rendered staffs/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1733)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 10574)
+
+
+Started POST "/staffs" for ::1 at 2019-08-25 19:30:36 -0500
+Processing by StaffsController#create as HTML
+  Parameters: {"authenticity_token"=>"Nb/dPfe3iu0qdHFIIk/xt7yeNcoME0qHzrlydpMxeGIYWH8PcEh7kjmjo2sFHaIsZH6jeQtx2wh7K9dBoSP3Hw==", "staff"=>{"first_name"=>"Lauren", "last_name"=>"Shultz", "training_hours"=>"0.0", "field_trip_hours"=>"0.0", "planning_hours"=>"0.0", "program_hours"=>"0.0"}, "commit"=>"Create Staff"}
+  [1m[35m (58.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[36mStaff Create (48.6ms)[0m  [1m[32mINSERT INTO "staffs" ("first_name", "last_name", "total_hours", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "Lauren"], ["last_name", "Shultz"], ["total_hours", 0.0], ["created_at", "2019-08-26 00:30:36.937951"], ["updated_at", "2019-08-26 00:30:36.937951"]]
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+  [1m[35m (49.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/staffs/6
+Completed 302 Found in 164ms (ActiveRecord: 156.7ms | Allocations: 2812)
+
+
+Started GET "/staffs/6" for ::1 at 2019-08-25 19:30:37 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mStaff Load (52.9ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 16.1ms | ActiveRecord: 52.9ms | Allocations: 9510)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:30:39 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (59.9ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 63.5ms | Allocations: 1211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 19.5ms | ActiveRecord: 59.9ms | Allocations: 10032)
+
+
+Started GET "/staffs/3/edit" for ::1 at 2019-08-25 19:30:44 -0500
+Processing by StaffsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStaff Load (52.0ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/edit.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.2ms | Allocations: 1710)
+  Rendered staffs/edit.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1983)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 22.1ms | ActiveRecord: 52.0ms | Allocations: 11506)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:30:47 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (61.6ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 64.6ms | Allocations: 1215)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 81ms (Views: 18.9ms | ActiveRecord: 61.6ms | Allocations: 10038)
+
+
+Started GET "/staffs/3/edit" for ::1 at 2019-08-25 19:31:11 -0500
+Processing by StaffsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStaff Load (49.5ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/edit.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.2ms | Allocations: 1681)
+  Rendered staffs/edit.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1808)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 19.2ms | ActiveRecord: 49.5ms | Allocations: 11189)
+
+
+Started PATCH "/staffs/3" for ::1 at 2019-08-25 19:31:18 -0500
+Processing by StaffsController#update as HTML
+  Parameters: {"authenticity_token"=>"MFpd6J4NtgHXnRZdDfmLtcnKZVN9y0DRTM53zzVWX3kSa+E5hF3cJ1qdx63h1KnXzyM1MqKYjknaYn/KBEsndA==", "staff"=>{"first_name"=>"Mad", "last_name"=>"Swanson", "training_hours"=>"2", "field_trip_hours"=>"0.0", "planning_hours"=>"0.0", "program_hours"=>"0.0"}, "commit"=>"Update Staff", "id"=>"3"}
+  [1m[36mStaff Load (51.0ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  [1m[35m (67.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[36mStaff Update (50.5ms)[0m  [1m[33mUPDATE "staffs" SET "training_hours" = $1, "total_hours" = $2, "updated_at" = $3 WHERE "staffs"."id" = $4[0m  [["training_hours", 2.0], ["total_hours", 2.0], ["updated_at", "2019-08-26 00:31:18.986617"], ["id", 3]]
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[35m (56.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+Redirected to http://localhost:3000/staffs/3
+Completed 302 Found in 234ms (ActiveRecord: 225.6ms | Allocations: 3457)
+
+
+Started GET "/staffs/3" for ::1 at 2019-08-25 19:31:19 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStaff Load (49.7ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 16.2ms | ActiveRecord: 49.7ms | Allocations: 9505)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:31:20 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (49.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 52.2ms | Allocations: 1211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 18.8ms | ActiveRecord: 49.3ms | Allocations: 10028)
+
+
+Started GET "/staffs/4/edit" for ::1 at 2019-08-25 19:31:23 -0500
+Processing by StaffsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStaff Load (125.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/edit.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.1ms | Allocations: 1681)
+  Rendered staffs/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1808)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 147ms (Views: 19.0ms | ActiveRecord: 125.3ms | Allocations: 11193)
+
+
+Started PATCH "/staffs/4" for ::1 at 2019-08-25 19:31:30 -0500
+Processing by StaffsController#update as HTML
+  Parameters: {"authenticity_token"=>"1/jRFsvBEJlgFCVw+DbaDDQJL1jv1utPj2r/bXYa8Mb8Aym7gFFEv+4odafJA0P860QczTBYNmBjc7hm3YuWeQ==", "staff"=>{"first_name"=>"Meka", "last_name"=>"Tate", "training_hours"=>"0.0", "field_trip_hours"=>"0.0", "planning_hours"=>"2", "program_hours"=>"0.0"}, "commit"=>"Update Staff", "id"=>"4"}
+  [1m[36mStaff Load (51.8ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  [1m[35m (58.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[36mStaff Update (88.1ms)[0m  [1m[33mUPDATE "staffs" SET "planning_hours" = $1, "total_hours" = $2, "updated_at" = $3 WHERE "staffs"."id" = $4[0m  [["planning_hours", 2.0], ["total_hours", 2.0], ["updated_at", "2019-08-26 00:31:31.092019"], ["id", 4]]
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[35m (54.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+Redirected to http://localhost:3000/staffs/4
+Completed 302 Found in 261ms (ActiveRecord: 252.4ms | Allocations: 3417)
+
+
+Started GET "/staffs/4" for ::1 at 2019-08-25 19:31:31 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStaff Load (51.5ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 17.7ms | ActiveRecord: 51.5ms | Allocations: 9517)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:31:34 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (58.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 61.5ms | Allocations: 1211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 78ms (Views: 19.1ms | ActiveRecord: 58.3ms | Allocations: 10031)
+
+
+Started GET "/staffs/5/edit" for ::1 at 2019-08-25 19:31:37 -0500
+Processing by StaffsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStaff Load (59.9ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/edit.html.erb within layouts/application
+  Rendered staffs/_form.html.erb (Duration: 3.1ms | Allocations: 1681)
+  Rendered staffs/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1808)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 19.8ms | ActiveRecord: 59.9ms | Allocations: 11191)
+
+
+Started PATCH "/staffs/5" for ::1 at 2019-08-25 19:31:41 -0500
+Processing by StaffsController#update as HTML
+  Parameters: {"authenticity_token"=>"IW/48Rtnt83r867i2rM/Disw2Uliqnq86BeSPhgQlCxV8us8P7Gc3Zq/CZUgMdG54boZCTzZE3vHlZUru8m6bA==", "staff"=>{"first_name"=>"Tabitha", "last_name"=>"Raven", "training_hours"=>"0.0", "field_trip_hours"=>"0.0", "planning_hours"=>"2", "program_hours"=>"0.0"}, "commit"=>"Update Staff", "id"=>"5"}
+  [1m[36mStaff Load (50.3ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  [1m[35m (49.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[36mStaff Update (50.5ms)[0m  [1m[33mUPDATE "staffs" SET "planning_hours" = $1, "total_hours" = $2, "updated_at" = $3 WHERE "staffs"."id" = $4[0m  [["planning_hours", 2.0], ["total_hours", 2.0], ["updated_at", "2019-08-26 00:31:41.966709"], ["id", 5]]
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+  [1m[35m (49.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/staffs_controller.rb:44:in `block in update'
+Redirected to http://localhost:3000/staffs/5
+Completed 302 Found in 215ms (ActiveRecord: 199.4ms | Allocations: 3417)
+
+
+Started GET "/staffs/5" for ::1 at 2019-08-25 19:31:42 -0500
+Processing by StaffsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStaff Load (45.9ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs" WHERE "staffs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/staffs_controller.rb:67:in `set_staff'
+  Rendering staffs/show.html.erb within layouts/application
+  Rendered staffs/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 25.1ms | ActiveRecord: 45.9ms | Allocations: 9510)
+
+
+Started GET "/staffs" for ::1 at 2019-08-25 19:31:43 -0500
+Processing by StaffsController#index as HTML
+  Rendering staffs/index.html.erb within layouts/application
+  [1m[36mStaff Load (84.0ms)[0m  [1m[34mSELECT "staffs".* FROM "staffs"[0m
+  ↳ app/views/staffs/index.html.erb:16
+  Rendered staffs/index.html.erb within layouts/application (Duration: 87.1ms | Allocations: 1211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 104ms (Views: 19.6ms | ActiveRecord: 84.0ms | Allocations: 10031)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:31:47 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 8936)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:32:16 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (61.6ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 63.4ms | Allocations: 696)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 96ms (Views: 33.4ms | ActiveRecord: 61.6ms | Allocations: 9520)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:32:18 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (61.8ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 63.8ms | Allocations: 690)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 17.8ms | ActiveRecord: 61.8ms | Allocations: 9515)
+
+
+Started GET "/class_periods" for ::1 at 2019-08-25 19:32:20 -0500
+Processing by ClassPeriodsController#index as HTML
+  Rendering class_periods/index.html.erb within layouts/application
+  [1m[36mClassPeriod Load (110.3ms)[0m  [1m[34mSELECT "class_periods".* FROM "class_periods"[0m
+  ↳ app/views/class_periods/index.html.erb:16
+  Rendered class_periods/index.html.erb within layouts/application (Duration: 112.2ms | Allocations: 690)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 129ms (Views: 17.6ms | ActiveRecord: 110.3ms | Allocations: 9512)
+
+
+Started GET "/" for ::1 at 2019-08-25 19:32:21 -0500
+Processing by HomesController#index as HTML
+  Rendering homes/index.html.erb within layouts/application
+  Rendered homes/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 104)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 8925)
+
+

@@ -20,6 +20,16 @@
   <strong>  Planning Hours:</strong>
   <%=   @staff.planning_hours %>
 </p>
+
+<p>
+  <strong>  Training Hours:</strong>
+  <%=   @staff.training_hours %>
+</p>
+
+<p>
+  <strong>  Field Trip Hours:</strong>
+  <%=   @staff.field_trip_hours %>
+</p>
 ------------------------------------
 <p>
   <strong>Total Hours:</strong>
@@ -28,11 +38,5 @@
 
 </div>
 
-<p>
-  <strong>Sessions worked:</strong>
-  <%= @staff.sessions_worked %>
-</p>
-
-<%= link_to '+ Add A Session Worked', edit_staff_path(@staff) %> |
 <%= link_to 'Edit', edit_staff_path(@staff) %> |
 <%= link_to 'Back', staffs_path %>

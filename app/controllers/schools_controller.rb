@@ -85,6 +85,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_params
-      params.require(:school).permit(:name, :days, :avg_attendance, :class_periods)
+      params.require(:school).permit(:name, :days, :avg_attendance, :class_periods, :channel_name)
     end
 end
